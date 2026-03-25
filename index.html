@@ -551,7 +551,7 @@
       transition: flex 0.55s cubic-bezier(0.4,0,0.2,1);
       background: #111;
     }
-    .mentor-card.active { flex: 1 1 0; max-width: 340px; }
+    .mentor-card.active { flex: 1 1 0; }
     .mentor-card::after {
       content: '';
       position: absolute;
@@ -865,52 +865,89 @@
   <div class="logo-bar">
     <div class="marquee-track">
       <!-- Set 1 -->
-      <div class="marquee-item">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/7/75/RedeTV%21_logo.svg" alt="RedeTV!" class="tv-logo" loading="lazy" />
+      <div class="marquee-item" title="Band">
+        <svg width="80" height="32" viewBox="0 0 80 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Band">
+  <circle cx="16" cy="16" r="15" fill="white"/>
+  <text x="16" y="21" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="13" font-weight="900" fill="#e30513">b</text>
+  <text x="38" y="22" font-family="Arial Black, sans-serif" font-size="16" font-weight="900" fill="white" letter-spacing="1">AND</text>
+</svg>
       </div>
       <span class="marquee-sep">·</span>
-      <div class="marquee-item">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/UOL_logo.svg" alt="UOL" class="tv-logo" loading="lazy" />
+      <div class="marquee-item" title="Globo">
+        <svg width="90" height="32" viewBox="0 0 90 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Globo">
+  <circle cx="16" cy="16" r="15" fill="none" stroke="white" stroke-width="2"/>
+  <path d="M8 16 Q16 6 24 16 Q16 26 8 16Z" fill="white" opacity="0.9"/>
+  <path d="M8 16 Q16 8 24 16" fill="none" stroke="white" stroke-width="1.5"/>
+  <text x="36" y="22" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="white" letter-spacing="0.5">globo</text>
+</svg>
       </div>
       <span class="marquee-sep">·</span>
-      <div class="marquee-item">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Band_logo.svg" alt="Band" class="tv-logo" loading="lazy" />
+      <div class="marquee-item" title="terra">
+        <svg width="72" height="32" viewBox="0 0 72 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="terra">
+  <text x="0" y="22" font-family="Georgia, serif" font-size="18" font-weight="700" fill="white" letter-spacing="-0.3">terra</text>
+</svg>
       </div>
       <span class="marquee-sep">·</span>
-      <div class="marquee-item">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0a/Rede_Globo_logo_2021.svg" alt="Globo" class="tv-logo" loading="lazy" />
+      <div class="marquee-item" title="RedeTV!">
+        <svg width="88" height="32" viewBox="0 0 88 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="RedeTV!">
+  <text x="0" y="21" font-family="Arial Black, sans-serif" font-size="12" font-weight="900" fill="white" letter-spacing="0.5">REDE</text>
+  <rect x="44" y="4" width="24" height="18" rx="3" fill="white"/>
+  <text x="56" y="17" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="11" font-weight="900" fill="#c8102e">TV</text>
+  <text x="70" y="15" font-family="Arial Black, sans-serif" font-size="12" font-weight="900" fill="white">!</text>
+</svg>
       </div>
       <span class="marquee-sep">·</span>
-      <div class="marquee-item">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Logo_Terra.svg" alt="Terra" class="tv-logo" loading="lazy" />
-      </div>
-      <span class="marquee-sep" style="margin: 0 20px;">·</span>
-      <!-- Set 2 (duplicado para loop contínuo) -->
-      <div class="marquee-item">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/7/75/RedeTV%21_logo.svg" alt="RedeTV!" class="tv-logo" loading="lazy" />
-      </div>
-      <span class="marquee-sep">·</span>
-      <div class="marquee-item">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/UOL_logo.svg" alt="UOL" class="tv-logo" loading="lazy" />
+      <div class="marquee-item" title="UOL">
+        <svg width="68" height="32" viewBox="0 0 68 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="UOL">
+  <circle cx="10" cy="16" r="9" fill="none" stroke="white" stroke-width="2"/>
+  <circle cx="10" cy="16" r="3" fill="white"/>
+  <text x="24" y="22" font-family="Arial Black, sans-serif" font-size="17" font-weight="900" fill="white" letter-spacing="-0.5">UOL</text>
+</svg>
       </div>
       <span class="marquee-sep">·</span>
-      <div class="marquee-item">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Band_logo.svg" alt="Band" class="tv-logo" loading="lazy" />
+      <!-- Set 2 (duplicado) -->
+      <div class="marquee-item" title="Band">
+        <svg width="80" height="32" viewBox="0 0 80 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Band">
+  <circle cx="16" cy="16" r="15" fill="white"/>
+  <text x="16" y="21" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="13" font-weight="900" fill="#e30513">b</text>
+  <text x="38" y="22" font-family="Arial Black, sans-serif" font-size="16" font-weight="900" fill="white" letter-spacing="1">AND</text>
+</svg>
       </div>
       <span class="marquee-sep">·</span>
-      <div class="marquee-item">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0a/Rede_Globo_logo_2021.svg" alt="Globo" class="tv-logo" loading="lazy" />
+      <div class="marquee-item" title="Globo">
+        <svg width="90" height="32" viewBox="0 0 90 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Globo">
+  <circle cx="16" cy="16" r="15" fill="none" stroke="white" stroke-width="2"/>
+  <path d="M8 16 Q16 6 24 16 Q16 26 8 16Z" fill="white" opacity="0.9"/>
+  <path d="M8 16 Q16 8 24 16" fill="none" stroke="white" stroke-width="1.5"/>
+  <text x="36" y="22" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="white" letter-spacing="0.5">globo</text>
+</svg>
       </div>
       <span class="marquee-sep">·</span>
-      <div class="marquee-item">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Logo_Terra.svg" alt="Terra" class="tv-logo" loading="lazy" />
+      <div class="marquee-item" title="terra">
+        <svg width="72" height="32" viewBox="0 0 72 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="terra">
+  <text x="0" y="22" font-family="Georgia, serif" font-size="18" font-weight="700" fill="white" letter-spacing="-0.3">terra</text>
+</svg>
       </div>
+      <span class="marquee-sep">·</span>
+      <div class="marquee-item" title="RedeTV!">
+        <svg width="88" height="32" viewBox="0 0 88 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="RedeTV!">
+  <text x="0" y="21" font-family="Arial Black, sans-serif" font-size="12" font-weight="900" fill="white" letter-spacing="0.5">REDE</text>
+  <rect x="44" y="4" width="24" height="18" rx="3" fill="white"/>
+  <text x="56" y="17" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="11" font-weight="900" fill="#c8102e">TV</text>
+  <text x="70" y="15" font-family="Arial Black, sans-serif" font-size="12" font-weight="900" fill="white">!</text>
+</svg>
+      </div>
+      <span class="marquee-sep">·</span>
+      <div class="marquee-item" title="UOL">
+        <svg width="68" height="32" viewBox="0 0 68 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="UOL">
+  <circle cx="10" cy="16" r="9" fill="none" stroke="white" stroke-width="2"/>
+  <circle cx="10" cy="16" r="3" fill="white"/>
+  <text x="24" y="22" font-family="Arial Black, sans-serif" font-size="17" font-weight="900" fill="white" letter-spacing="-0.5">UOL</text>
+</svg>
+      </div>
+      <span class="marquee-sep">·</span>
     </div>
   </div>
-
-  <!-- ============================================================
-       O QUE É ELEVATION
-  ============================================================ -->
   <section class="o-que-e" id="o-que-e">
     <div class="section-inner">
       <div class="o-que-e-grid">
@@ -979,15 +1016,7 @@
             </div>
           </div>
 
-          <div class="media-badges">
-            <span class="media-badge">Globo</span>
-            <span class="media-badge">Terra</span>
-            <span class="media-badge">RedeTV!</span>
-            <span class="media-badge">UOL</span>
-            <span class="media-badge">Band</span>
-            <span class="media-badge">Forbes</span>
-            <span class="media-badge">Exame</span>
-          </div>
+          
         </div>
 
       </div>
@@ -1086,10 +1115,10 @@
     </div>
     <div class="quote-overlay"></div>
     <div class="quote-inner">
-      <blockquote class="quote-text">
+      <blockquote class="quote-text" style="text-align:center;" style="text-align:center;">
         "Entre no círculo de 1% dos empresários que multiplicam resultados aprimorando o que já dá certo."
       </blockquote>
-      <div class="quote-authors">— Clara do Vale &amp; Ed Souza</div>
+      <div class="quote-authors" style="text-align:center;display:block;" style="text-align:center;">— Clara do Vale &amp; Ed Souza</div>
     </div>
   </section>
 
