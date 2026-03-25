@@ -443,7 +443,7 @@
     .quote-inner {
       position: relative;
       z-index: 2;
-      text-align: left;
+      text-align: center;
       max-width: 820px;
     }
     .quote-text {
@@ -456,6 +456,7 @@
       margin-bottom: 24px;
       letter-spacing: -0.01em;
     }
+    .quote-inner { text-align: center; }
     .quote-authors { font-size: 15px; color: rgba(255,255,255,0.55); letter-spacing: 0.02em; }
 
     /* ============================================================
@@ -543,14 +544,14 @@
     }
     .mentor-card {
       position: relative;
-      flex: 0 0 140px;
+      flex: 0 0 120px;
       border-radius: 16px;
       overflow: hidden;
       cursor: pointer;
       transition: flex 0.55s cubic-bezier(0.4,0,0.2,1);
       background: #111;
     }
-    .mentor-card.active { flex: 1 1 0; }
+    .mentor-card.active { flex: 1 1 0; max-width: 340px; }
     .mentor-card::after {
       content: '';
       position: absolute;
@@ -612,7 +613,7 @@
     @media (max-width: 767px) {
       .mentores-accordion { flex-direction: column; height: auto; }
       .mentor-card { flex: none; height: 100px; transition: height 0.5s cubic-bezier(0.4,0,0.2,1); }
-      .mentor-card.active { height: 420px; }
+      .mentor-card.active { height: 380px; }
     }
 
     /* ============================================================
@@ -806,6 +807,7 @@
     .footer-links a { font-size: 13px; color: var(--muted); transition: color var(--t); }
     .footer-links a:hover { color: var(--white); }
     .footer-copy { font-size: 11.5px; color: rgba(255,255,255,0.25); }
+    .tv-logo { height: 28px; width: auto; filter: grayscale(100%) brightness(0.75); opacity: 0.7; }
   </style>
 </head>
 <body>
@@ -864,52 +866,44 @@
     <div class="marquee-track">
       <!-- Set 1 -->
       <div class="marquee-item">
-        <svg height="22" viewBox="0 0 90 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="RedeTV!">
-          <text x="0" y="17" font-family="Arial, sans-serif" font-size="14" font-weight="800" fill="white" letter-spacing="-0.3">REDE</text>
-          <text x="42" y="17" font-family="Arial, sans-serif" font-size="14" font-weight="800" fill="white">TV</text>
-          <text x="64" y="14" font-family="Arial, sans-serif" font-size="10" font-weight="900" fill="white">!</text>
-        </svg>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/75/RedeTV%21_logo.svg" alt="RedeTV!" class="tv-logo" loading="lazy" />
       </div>
       <span class="marquee-sep">·</span>
       <div class="marquee-item">
-        <svg height="24" viewBox="0 0 72 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="UOL">
-          <circle cx="12" cy="12" r="11" stroke="white" stroke-width="2"/>
-          <text x="10" y="16" font-family="Arial, sans-serif" font-size="9" font-weight="900" fill="white" text-anchor="middle">©</text>
-          <text x="30" y="17" font-family="Arial, sans-serif" font-size="16" font-weight="900" fill="white" letter-spacing="-1">UOL</text>
-        </svg>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/UOL_logo.svg" alt="UOL" class="tv-logo" loading="lazy" />
       </div>
       <span class="marquee-sep">·</span>
       <div class="marquee-item">
-        <svg height="24" viewBox="0 0 84 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="BAND">
-          <circle cx="12" cy="12" r="11" stroke="white" stroke-width="2"/>
-          <text x="12" y="16" font-family="Arial, sans-serif" font-size="8" font-weight="900" fill="white" text-anchor="middle">b</text>
-          <text x="30" y="17" font-family="Arial, sans-serif" font-size="16" font-weight="900" fill="white" letter-spacing="-1">BAND</text>
-        </svg>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Band_logo.svg" alt="Band" class="tv-logo" loading="lazy" />
       </div>
       <span class="marquee-sep">·</span>
       <div class="marquee-item">
-        <svg height="24" viewBox="0 0 92 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Globo">
-          <circle cx="12" cy="12" r="11" stroke="white" stroke-width="2"/>
-          <text x="12" y="16" font-family="Arial, sans-serif" font-size="8" font-weight="700" fill="white" text-anchor="middle">G</text>
-          <text x="30" y="17" font-family="Arial, sans-serif" font-size="16" font-weight="900" fill="white" letter-spacing="-1">GLOBO</text>
-        </svg>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0a/Rede_Globo_logo_2021.svg" alt="Globo" class="tv-logo" loading="lazy" />
+      </div>
+      <span class="marquee-sep">·</span>
+      <div class="marquee-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Logo_Terra.svg" alt="Terra" class="tv-logo" loading="lazy" />
       </div>
       <span class="marquee-sep" style="margin: 0 20px;">·</span>
       <!-- Set 2 (duplicado para loop contínuo) -->
       <div class="marquee-item">
-        <svg height="22" viewBox="0 0 90 22" fill="none" xmlns="http://www.w3.org/2000/svg"><text x="0" y="17" font-family="Arial, sans-serif" font-size="14" font-weight="800" fill="white">REDE</text><text x="42" y="17" font-family="Arial, sans-serif" font-size="14" font-weight="800" fill="white">TV</text><text x="64" y="14" font-family="Arial, sans-serif" font-size="10" font-weight="900" fill="white">!</text></svg>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/75/RedeTV%21_logo.svg" alt="RedeTV!" class="tv-logo" loading="lazy" />
       </div>
       <span class="marquee-sep">·</span>
       <div class="marquee-item">
-        <svg height="24" viewBox="0 0 72 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="11" stroke="white" stroke-width="2"/><text x="10" y="16" font-family="Arial, sans-serif" font-size="9" font-weight="900" fill="white" text-anchor="middle">©</text><text x="30" y="17" font-family="Arial, sans-serif" font-size="16" font-weight="900" fill="white" letter-spacing="-1">UOL</text></svg>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/UOL_logo.svg" alt="UOL" class="tv-logo" loading="lazy" />
       </div>
       <span class="marquee-sep">·</span>
       <div class="marquee-item">
-        <svg height="24" viewBox="0 0 84 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="11" stroke="white" stroke-width="2"/><text x="12" y="16" font-family="Arial, sans-serif" font-size="8" font-weight="900" fill="white" text-anchor="middle">b</text><text x="30" y="17" font-family="Arial, sans-serif" font-size="16" font-weight="900" fill="white" letter-spacing="-1">BAND</text></svg>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Band_logo.svg" alt="Band" class="tv-logo" loading="lazy" />
       </div>
       <span class="marquee-sep">·</span>
       <div class="marquee-item">
-        <svg height="24" viewBox="0 0 92 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="11" stroke="white" stroke-width="2"/><text x="12" y="16" font-family="Arial, sans-serif" font-size="8" font-weight="700" fill="white" text-anchor="middle">G</text><text x="30" y="17" font-family="Arial, sans-serif" font-size="16" font-weight="900" fill="white" letter-spacing="-1">GLOBO</text></svg>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0a/Rede_Globo_logo_2021.svg" alt="Globo" class="tv-logo" loading="lazy" />
+      </div>
+      <span class="marquee-sep">·</span>
+      <div class="marquee-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Logo_Terra.svg" alt="Terra" class="tv-logo" loading="lazy" />
       </div>
     </div>
   </div>
@@ -940,8 +934,10 @@
             <span class="badge-dot"></span>
             ELEVATION
           </div>
-          <h2 class="section-title">O que é o<br /><span>Elevation?</span></h2>
+          <h2 class="section-title">O que é<br /><span>Elevation?</span></h2>
           <p class="section-subtitle">A Elevation é onde o 1% dos empresários mais bem pagos estão para escalar o que já funciona. O programa de aceleração de alto nível da Mentory International®, criado para transformar empreendedores em líderes de mercado.</p>
+
+          <p class="section-subtitle" style="margin-top:14px;">Juntos já ajudaram outros empreendedores a atingirem a marca de mais de 10 milhões de reais.</p>
 
           <div class="o-que-e-bullets">
             <div class="o-que-e-bullet">
@@ -1068,7 +1064,7 @@
 
         <div class="pilares-sticky-wrap">
           <div class="pilares-sticky-img">
-            <img src="https://framerusercontent.com/images/eYSxJRP781INyfgLGW28Xdccoc.jpg" alt="Elevation — imersão" loading="lazy" />
+            <img src="https://framerusercontent.com/images/qKzK0DvaRn8UGYPP7QxJavwXo8.jpg" alt="Ed Souza — Elevation" loading="lazy" />
           </div>
         </div>
 
@@ -1316,7 +1312,7 @@
             <span>04</span>
           </div>
           <div class="mentor-info">
-            <div class="mentor-bio">Especialista em marketing e aquisição premium. Responsável pelas estratégias de crescimento da Mentory.</div>
+            <div class="mentor-bio">Coordenadora Executiva da Mentory e Líder do nosso Sucesso do Cliente, conhecendo toda a nossa operação e estratégia de produtos, ascensão e encantamento.</div>
             <div class="mentor-icon-box">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
             </div>
@@ -1402,39 +1398,39 @@
     <div class="alumni-marquee-wrap">
       <div class="alumni-track">
         <!-- Set 1 -->
-        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/CNadxM05Ef10pTEN16nbmm73A.png" alt="Leilane" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Leilane</div><div class="alumni-nicho">Concursos</div></div>
-        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/ducmL9KbtDA5elWIwyFobVhVw.png" alt="Mayara Campos" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Mayara Campos</div><div class="alumni-nicho">Empresária Beauty</div></div>
-        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/hOho510Ddo8nx2toFbbPyLjG1Is.png" alt="Marina Alibia" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Marina Alibia</div><div class="alumni-nicho">Marketing</div></div>
-        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/iM6VEwXGdwAnVL8C3seqLJgB5sU.png" alt="Nayara Mourat" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Nayara Mourat</div><div class="alumni-nicho">Tarot</div></div>
-        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/fBiDGjoXkqN6uiHt4NP1KSstch8.png" alt="May Duchini" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">May Duchini</div><div class="alumni-nicho">Autoconhecimento</div></div>
-        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/zAor3yUdQaAxDXH98wJO3nKDA.png" alt="Bárbara" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Bárbara</div><div class="alumni-nicho">Educação</div></div>
-        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/ETXe0El5Uwj6skW3Fm9he2zNbeY.png" alt="Genisson" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Genisson</div><div class="alumni-nicho">Vendas</div></div>
-        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/1XFcYU2ybdaOMRNpMpLnmBzsSrA.png" alt="Patricia" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Patricia</div><div class="alumni-nicho">Coaching</div></div>
-        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/yAvQL7Rmssu2lOsdfcRa1PyfWLE.png" alt="Carla" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Carla</div><div class="alumni-nicho">Saúde</div></div>
-        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/qjXb27ZZNUzXfwjfY4BbfkbqLxc.png" alt="Renata" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Renata</div><div class="alumni-nicho">Consultoria</div></div>
-        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/gVDWHZR8JOZcJfPZKzuTkjIb8o.png" alt="Fernanda" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Fernanda</div><div class="alumni-nicho">Moda</div></div>
-        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/QWrW0vhWyj5cLEzVol4iPeK2BM.png" alt="Andréa" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Andréa</div><div class="alumni-nicho">Finanças</div></div>
-        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/CNQjTvsq8Luo7a3vs3iSMvMQg.png" alt="Juliana" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Juliana</div><div class="alumni-nicho">Estética</div></div>
-        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/7c0VHU28vbV9p2LH6jldt6XsMDc.png" alt="Vanessa" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Vanessa</div><div class="alumni-nicho">Imóveis</div></div>
-        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/LGDxeVOCBY0NoA6pGptc4K7cHo.png" alt="Camila" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Camila</div><div class="alumni-nicho">Tecnologia</div></div>
-        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/L1UTo0bljB3Mo4JqtZB8AFAFCU.png" alt="Daniela" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Daniela</div><div class="alumni-nicho">Jurídico</div></div>
+        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/CNadxM05Ef10pTEN16nbmm73A.png" alt="Midyã Lima" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Midyã Lima</div><div class="alumni-nicho">Cachos</div></div>
+        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/ducmL9KbtDA5elWIwyFobVhVw.png" alt="Fernanda Beppler" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Fernanda Beppler</div><div class="alumni-nicho">Tarot</div></div>
+        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/hOho510Ddo8nx2toFbbPyLjG1Is.png" alt="Sara Lanna" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Sara Lanna</div><div class="alumni-nicho">Beauty</div></div>
+        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/iM6VEwXGdwAnVL8C3seqLJgB5sU.png" alt="Kelly Rosane" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Kelly Rosane</div><div class="alumni-nicho">Análise Corporal</div></div>
+        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/fBiDGjoXkqN6uiHt4NP1KSstch8.png" alt="Diana Carvalho" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Diana Carvalho</div><div class="alumni-nicho">Turismo</div></div>
+        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/zAor3yUdQaAxDXH98wJO3nKDA.png" alt="Larissa Milani" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Larissa Milani</div><div class="alumni-nicho">English for business</div></div>
+        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/ETXe0El5Uwj6skW3Fm9he2zNbeY.png" alt="Aline Alcântara" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Aline Alcântara</div><div class="alumni-nicho"></div></div>
+        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/1XFcYU2ybdaOMRNpMpLnmBzsSrA.png" alt="Sônia Furkos" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Sônia Furkos</div><div class="alumni-nicho">Beleza</div></div>
+        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/yAvQL7Rmssu2lOsdfcRa1PyfWLE.png" alt="Letícia Ribeiro" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Letícia Ribeiro</div><div class="alumni-nicho">Arquitetura</div></div>
+        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/qjXb27ZZNUzXfwjfY4BbfkbqLxc.png" alt="Taiame" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Taiame</div><div class="alumni-nicho">Reprogramação Mental</div></div>
+        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/gVDWHZR8JOZcJfPZKzuTkjIb8o.png" alt="Leilane" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Leilane</div><div class="alumni-nicho">Concursos</div></div>
+        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/QWrW0vhWyj5cLEzVol4iPeK2BM.png" alt="Mayara Campos" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Mayara Campos</div><div class="alumni-nicho">Beleza</div></div>
+        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/CNQjTvsq8Luo7a3vs3iSMvMQg.png" alt="Marina Alibia" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Marina Alibia</div><div class="alumni-nicho">Marketing</div></div>
+        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/7c0VHU28vbV9p2LH6jldt6XsMDc.png" alt="Nayara Mourat" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Nayara Mourat</div><div class="alumni-nicho">Tarot</div></div>
+        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/LGDxeVOCBY0NoA6pGptc4K7cHo.png" alt="May Duchini" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">May Duchini</div><div class="alumni-nicho">Autoconhecimento</div></div>
+        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/L1UTo0bljB3Mo4JqtZB8AFAFCU.png" alt="Polliana Marques" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Polliana Marques</div><div class="alumni-nicho">Direito</div></div>
         <!-- Set 2 (duplicado para loop) -->
-        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/CNadxM05Ef10pTEN16nbmm73A.png" alt="Leilane" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Leilane</div><div class="alumni-nicho">Concursos</div></div>
-        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/ducmL9KbtDA5elWIwyFobVhVw.png" alt="Mayara Campos" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Mayara Campos</div><div class="alumni-nicho">Empresária Beauty</div></div>
-        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/hOho510Ddo8nx2toFbbPyLjG1Is.png" alt="Marina Alibia" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Marina Alibia</div><div class="alumni-nicho">Marketing</div></div>
-        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/iM6VEwXGdwAnVL8C3seqLJgB5sU.png" alt="Nayara Mourat" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Nayara Mourat</div><div class="alumni-nicho">Tarot</div></div>
-        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/fBiDGjoXkqN6uiHt4NP1KSstch8.png" alt="May Duchini" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">May Duchini</div><div class="alumni-nicho">Autoconhecimento</div></div>
-        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/zAor3yUdQaAxDXH98wJO3nKDA.png" alt="Bárbara" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Bárbara</div><div class="alumni-nicho">Educação</div></div>
-        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/ETXe0El5Uwj6skW3Fm9he2zNbeY.png" alt="Genisson" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Genisson</div><div class="alumni-nicho">Vendas</div></div>
-        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/1XFcYU2ybdaOMRNpMpLnmBzsSrA.png" alt="Patricia" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Patricia</div><div class="alumni-nicho">Coaching</div></div>
-        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/yAvQL7Rmssu2lOsdfcRa1PyfWLE.png" alt="Carla" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Carla</div><div class="alumni-nicho">Saúde</div></div>
-        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/qjXb27ZZNUzXfwjfY4BbfkbqLxc.png" alt="Renata" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Renata</div><div class="alumni-nicho">Consultoria</div></div>
-        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/gVDWHZR8JOZcJfPZKzuTkjIb8o.png" alt="Fernanda" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Fernanda</div><div class="alumni-nicho">Moda</div></div>
-        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/QWrW0vhWyj5cLEzVol4iPeK2BM.png" alt="Andréa" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Andréa</div><div class="alumni-nicho">Finanças</div></div>
-        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/CNQjTvsq8Luo7a3vs3iSMvMQg.png" alt="Juliana" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Juliana</div><div class="alumni-nicho">Estética</div></div>
-        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/7c0VHU28vbV9p2LH6jldt6XsMDc.png" alt="Vanessa" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Vanessa</div><div class="alumni-nicho">Imóveis</div></div>
-        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/LGDxeVOCBY0NoA6pGptc4K7cHo.png" alt="Camila" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Camila</div><div class="alumni-nicho">Tecnologia</div></div>
-        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/L1UTo0bljB3Mo4JqtZB8AFAFCU.png" alt="Daniela" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Daniela</div><div class="alumni-nicho">Jurídico</div></div>
+        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/CNadxM05Ef10pTEN16nbmm73A.png" alt="Midyã Lima" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Midyã Lima</div><div class="alumni-nicho">Cachos</div></div>
+        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/ducmL9KbtDA5elWIwyFobVhVw.png" alt="Fernanda Beppler" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Fernanda Beppler</div><div class="alumni-nicho">Tarot</div></div>
+        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/hOho510Ddo8nx2toFbbPyLjG1Is.png" alt="Sara Lanna" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Sara Lanna</div><div class="alumni-nicho">Beauty</div></div>
+        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/iM6VEwXGdwAnVL8C3seqLJgB5sU.png" alt="Kelly Rosane" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Kelly Rosane</div><div class="alumni-nicho">Análise Corporal</div></div>
+        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/fBiDGjoXkqN6uiHt4NP1KSstch8.png" alt="Diana Carvalho" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Diana Carvalho</div><div class="alumni-nicho">Turismo</div></div>
+        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/zAor3yUdQaAxDXH98wJO3nKDA.png" alt="Larissa Milani" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Larissa Milani</div><div class="alumni-nicho">English for business</div></div>
+        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/ETXe0El5Uwj6skW3Fm9he2zNbeY.png" alt="Aline Alcântara" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Aline Alcântara</div><div class="alumni-nicho"></div></div>
+        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/1XFcYU2ybdaOMRNpMpLnmBzsSrA.png" alt="Sônia Furkos" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Sônia Furkos</div><div class="alumni-nicho">Beleza</div></div>
+        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/yAvQL7Rmssu2lOsdfcRa1PyfWLE.png" alt="Letícia Ribeiro" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Letícia Ribeiro</div><div class="alumni-nicho">Arquitetura</div></div>
+        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/qjXb27ZZNUzXfwjfY4BbfkbqLxc.png" alt="Taiame" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Taiame</div><div class="alumni-nicho">Reprogramação Mental</div></div>
+        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/gVDWHZR8JOZcJfPZKzuTkjIb8o.png" alt="Leilane" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Leilane</div><div class="alumni-nicho">Concursos</div></div>
+        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/QWrW0vhWyj5cLEzVol4iPeK2BM.png" alt="Mayara Campos" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Mayara Campos</div><div class="alumni-nicho">Beleza</div></div>
+        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/CNQjTvsq8Luo7a3vs3iSMvMQg.png" alt="Marina Alibia" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Marina Alibia</div><div class="alumni-nicho">Marketing</div></div>
+        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/7c0VHU28vbV9p2LH6jldt6XsMDc.png" alt="Nayara Mourat" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Nayara Mourat</div><div class="alumni-nicho">Tarot</div></div>
+        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/LGDxeVOCBY0NoA6pGptc4K7cHo.png" alt="May Duchini" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">May Duchini</div><div class="alumni-nicho">Autoconhecimento</div></div>
+        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/L1UTo0bljB3Mo4JqtZB8AFAFCU.png" alt="Polliana Marques" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Polliana Marques</div><div class="alumni-nicho">Direito</div></div>
       </div>
     </div>
 
