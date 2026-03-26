@@ -230,12 +230,16 @@
       margin-bottom: 28px;
     }
     .hero h1 {
-      font-size: clamp(28px,5.5vw,64px);
-      font-weight: 700;
-      line-height: 1.1;
-      letter-spacing: -0.03em;
+      font-size: clamp(26px,4.8vw,62px);
+      font-weight: 300;
+      line-height: 1.12;
+      letter-spacing: -0.025em;
       color: var(--white);
       margin-bottom: 20px;
+    }
+    .hero h1 strong {
+      font-weight: 700;
+      color: var(--white);
     }
     .hero-sub {
       font-size: clamp(14px,1.8vw,18px);
@@ -572,18 +576,41 @@
     .mentor-card:hover .mentor-photo { transform: scale(1.015); }
     .mentor-number {
       position: absolute;
-      top: 16px; left: 16px;
+      top: 20px; left: 20px;
       z-index: 3;
       display: flex;
       align-items: center;
-      gap: 5px;
-      color: rgba(255,255,255,0.75);
-      font-size: clamp(14px,1.8vw,22px);
-      font-weight: 500;
-      letter-spacing: -0.03em;
+      gap: 8px;
+      color: rgba(255,255,255,0.85);
+      font-size: clamp(12px,1.4vw,16px);
+      font-weight: 400;
+      letter-spacing: 0;
       text-shadow: 0 1px 4px rgba(0,0,0,0.5);
     }
-    .mentor-arrow-icon { width: clamp(12px,1.5vw,16px); height: clamp(12px,1.5vw,16px); stroke: rgba(255,255,255,0.75); }
+    .mentor-number .mentor-num-text {
+      font-size: clamp(28px,3.5vw,52px);
+      font-weight: 300;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      color: rgba(255,255,255,0.9);
+      display: none;
+    }
+    .mentor-card.active .mentor-number .mentor-num-text { display: block; }
+    .mentor-card.active .mentor-number .mentor-num-small { display: none; }
+    .mentor-num-small { font-size: clamp(13px,1.4vw,16px); font-weight: 400; }
+    .mentor-number-hr {
+      display: none;
+      position: absolute;
+      top: 90px; left: 20px; right: 20px;
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      z-index: 3;
+    }
+    .mentor-card.active .mentor-number-hr { display: block; }
+    .mentor-arrow-icon { width: clamp(12px,1.3vw,15px); height: clamp(12px,1.3vw,15px); stroke: rgba(255,255,255,0.75); }
+    .mentor-arrow-down { display: none; }
+    .mentor-card:not(.active) .mentor-arrow-icon { display: none; }
+    .mentor-card:not(.active) .mentor-arrow-down { display: block; }
     .mentor-info {
       position: absolute;
       bottom: 44px; left: 16px; right: 16px;
@@ -851,7 +878,7 @@
         <span class="badge-dot"></span>
         ELEVATION
       </div>
-      <h1>O programa de aceleração premium para empresários que estão prontos para escalar seu negócio para os 7 dígitos.</h1>
+      <h1>O programa de aceleração premium para empresários <strong>que estão prontos para escalar seu negócio para os 7 dígitos.</strong></h1>
       <p class="hero-sub">Construa um negócio sólido e lucrativo com nosso sistema único de vendas que gera lucro, paz e previsibilidade.</p>
       <a href="https://chat.mentoryacademy.com.br/elevation-aplicacao" class="hero-cta-btn" target="_blank" rel="noopener">
         <span class="btn-arrow">→</span>
@@ -1302,9 +1329,12 @@
 
         <div class="mentor-card active" data-index="0">
           <img src="https://framerusercontent.com/images/BxFRXT8Sloh1NlOyYfIS38Sg.png" alt="Ed Souza" class="mentor-photo" loading="lazy" />
+          <hr class="mentor-number-hr" />
           <div class="mentor-number">
             <svg class="mentor-arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-            <span>01</span>
+            <svg class="mentor-arrow-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="15" height="15" aria-hidden="true"><path d="M12 5v14M12 19l-7-7M12 19l7-7"/></svg>
+            <span class="mentor-num-text">01</span>
+            <span class="mentor-num-small">01</span>
           </div>
           <div class="mentor-info">
             <div class="mentor-bio">Construiu um negócio que fatura mais de 30 milhões e escala ano após ano com lucro, paz e liberdade.</div>
@@ -1319,9 +1349,12 @@
 
         <div class="mentor-card" data-index="1">
           <img src="https://framerusercontent.com/images/9jCXeUDc6fkMpLywHkjNmDGkxU.png" alt="Clara do Vale" class="mentor-photo" loading="lazy" />
+          <hr class="mentor-number-hr" />
           <div class="mentor-number">
             <svg class="mentor-arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-            <span>02</span>
+            <svg class="mentor-arrow-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="15" height="15" aria-hidden="true"><path d="M12 5v14M12 19l-7-7M12 19l7-7"/></svg>
+            <span class="mentor-num-text">02</span>
+            <span class="mentor-num-small">02</span>
           </div>
           <div class="mentor-info">
             <div class="mentor-bio">Fundadora da Mentory International®. Especialista em comunicação de alto impacto e posicionamento premium.</div>
@@ -1336,9 +1369,12 @@
 
         <div class="mentor-card" data-index="2">
           <img src="https://framerusercontent.com/images/M42RnYv01iBzhNvpOF4tstKD5k.png" alt="Kellton Souza" class="mentor-photo" loading="lazy" />
+          <hr class="mentor-number-hr" />
           <div class="mentor-number">
             <svg class="mentor-arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-            <span>03</span>
+            <svg class="mentor-arrow-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="15" height="15" aria-hidden="true"><path d="M12 5v14M12 19l-7-7M12 19l7-7"/></svg>
+            <span class="mentor-num-text">03</span>
+            <span class="mentor-num-small">03</span>
           </div>
           <div class="mentor-info">
             <div class="mentor-bio">Head de Operações &amp; Tecnologia da Mentory. Especialista em sistemas, processos e escala operacional.</div>
@@ -1353,9 +1389,12 @@
 
         <div class="mentor-card" data-index="3">
           <img src="https://framerusercontent.com/images/GpLWj9JIWJItkYTN5jLHuRvMNc.png" alt="Layanne Nascimento" class="mentor-photo" loading="lazy" />
+          <hr class="mentor-number-hr" />
           <div class="mentor-number">
             <svg class="mentor-arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-            <span>04</span>
+            <svg class="mentor-arrow-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="15" height="15" aria-hidden="true"><path d="M12 5v14M12 19l-7-7M12 19l7-7"/></svg>
+            <span class="mentor-num-text">04</span>
+            <span class="mentor-num-small">04</span>
           </div>
           <div class="mentor-info">
             <div class="mentor-bio">Coordenadora Executiva da Mentory e Líder do nosso Sucesso do Cliente, conhecendo toda a nossa operação e estratégia de produtos, ascensão e encantamento.</div>
