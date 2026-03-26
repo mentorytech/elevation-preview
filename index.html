@@ -551,7 +551,8 @@
       transition: flex 0.55s cubic-bezier(0.4,0,0.2,1);
       background: #111;
     }
-    .mentor-card.active { flex: 1 1 0; }
+    .mentor-card.active { flex: 1 1 0; max-width: 480px; }
+    .mentor-card { border-radius: 16px; overflow: hidden; }
     .mentor-card::after {
       content: '';
       position: absolute;
@@ -864,88 +865,14 @@
   ============================================================ -->
   <div class="logo-bar">
     <div class="marquee-track">
-      <!-- Set 1 -->
-      <div class="marquee-item" title="Band">
-        <svg width="80" height="32" viewBox="0 0 80 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Band">
-  <circle cx="16" cy="16" r="15" fill="white"/>
-  <text x="16" y="21" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="13" font-weight="900" fill="#e30513">b</text>
-  <text x="38" y="22" font-family="Arial Black, sans-serif" font-size="16" font-weight="900" fill="white" letter-spacing="1">AND</text>
-</svg>
+      <!-- Set 1 — imagem oficial dos logos de mídia -->
+      <div class="marquee-item" style="padding:0 40px; opacity:0.7; filter:grayscale(100%) brightness(1.1);">
+        <img src="https://framerusercontent.com/images/wzMEnuMWKRtzUtyRz0vlctoXs2Y.webp" alt="Logos mídia — Globo, Band, UOL, Forbes, RedeTV, Terra" style="height:40px; width:auto; display:block;" loading="lazy" />
       </div>
-      <span class="marquee-sep">·</span>
-      <div class="marquee-item" title="Globo">
-        <svg width="90" height="32" viewBox="0 0 90 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Globo">
-  <circle cx="16" cy="16" r="15" fill="none" stroke="white" stroke-width="2"/>
-  <path d="M8 16 Q16 6 24 16 Q16 26 8 16Z" fill="white" opacity="0.9"/>
-  <path d="M8 16 Q16 8 24 16" fill="none" stroke="white" stroke-width="1.5"/>
-  <text x="36" y="22" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="white" letter-spacing="0.5">globo</text>
-</svg>
+      <!-- Set 2 (duplicado para loop contínuo) -->
+      <div class="marquee-item" style="padding:0 40px; opacity:0.7; filter:grayscale(100%) brightness(1.1);">
+        <img src="https://framerusercontent.com/images/wzMEnuMWKRtzUtyRz0vlctoXs2Y.webp" alt="Logos mídia — Globo, Band, UOL, Forbes, RedeTV, Terra" style="height:40px; width:auto; display:block;" loading="lazy" />
       </div>
-      <span class="marquee-sep">·</span>
-      <div class="marquee-item" title="terra">
-        <svg width="72" height="32" viewBox="0 0 72 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="terra">
-  <text x="0" y="22" font-family="Georgia, serif" font-size="18" font-weight="700" fill="white" letter-spacing="-0.3">terra</text>
-</svg>
-      </div>
-      <span class="marquee-sep">·</span>
-      <div class="marquee-item" title="RedeTV!">
-        <svg width="88" height="32" viewBox="0 0 88 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="RedeTV!">
-  <text x="0" y="21" font-family="Arial Black, sans-serif" font-size="12" font-weight="900" fill="white" letter-spacing="0.5">REDE</text>
-  <rect x="44" y="4" width="24" height="18" rx="3" fill="white"/>
-  <text x="56" y="17" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="11" font-weight="900" fill="#c8102e">TV</text>
-  <text x="70" y="15" font-family="Arial Black, sans-serif" font-size="12" font-weight="900" fill="white">!</text>
-</svg>
-      </div>
-      <span class="marquee-sep">·</span>
-      <div class="marquee-item" title="UOL">
-        <svg width="68" height="32" viewBox="0 0 68 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="UOL">
-  <circle cx="10" cy="16" r="9" fill="none" stroke="white" stroke-width="2"/>
-  <circle cx="10" cy="16" r="3" fill="white"/>
-  <text x="24" y="22" font-family="Arial Black, sans-serif" font-size="17" font-weight="900" fill="white" letter-spacing="-0.5">UOL</text>
-</svg>
-      </div>
-      <span class="marquee-sep">·</span>
-      <!-- Set 2 (duplicado) -->
-      <div class="marquee-item" title="Band">
-        <svg width="80" height="32" viewBox="0 0 80 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Band">
-  <circle cx="16" cy="16" r="15" fill="white"/>
-  <text x="16" y="21" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="13" font-weight="900" fill="#e30513">b</text>
-  <text x="38" y="22" font-family="Arial Black, sans-serif" font-size="16" font-weight="900" fill="white" letter-spacing="1">AND</text>
-</svg>
-      </div>
-      <span class="marquee-sep">·</span>
-      <div class="marquee-item" title="Globo">
-        <svg width="90" height="32" viewBox="0 0 90 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Globo">
-  <circle cx="16" cy="16" r="15" fill="none" stroke="white" stroke-width="2"/>
-  <path d="M8 16 Q16 6 24 16 Q16 26 8 16Z" fill="white" opacity="0.9"/>
-  <path d="M8 16 Q16 8 24 16" fill="none" stroke="white" stroke-width="1.5"/>
-  <text x="36" y="22" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="white" letter-spacing="0.5">globo</text>
-</svg>
-      </div>
-      <span class="marquee-sep">·</span>
-      <div class="marquee-item" title="terra">
-        <svg width="72" height="32" viewBox="0 0 72 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="terra">
-  <text x="0" y="22" font-family="Georgia, serif" font-size="18" font-weight="700" fill="white" letter-spacing="-0.3">terra</text>
-</svg>
-      </div>
-      <span class="marquee-sep">·</span>
-      <div class="marquee-item" title="RedeTV!">
-        <svg width="88" height="32" viewBox="0 0 88 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="RedeTV!">
-  <text x="0" y="21" font-family="Arial Black, sans-serif" font-size="12" font-weight="900" fill="white" letter-spacing="0.5">REDE</text>
-  <rect x="44" y="4" width="24" height="18" rx="3" fill="white"/>
-  <text x="56" y="17" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="11" font-weight="900" fill="#c8102e">TV</text>
-  <text x="70" y="15" font-family="Arial Black, sans-serif" font-size="12" font-weight="900" fill="white">!</text>
-</svg>
-      </div>
-      <span class="marquee-sep">·</span>
-      <div class="marquee-item" title="UOL">
-        <svg width="68" height="32" viewBox="0 0 68 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="UOL">
-  <circle cx="10" cy="16" r="9" fill="none" stroke="white" stroke-width="2"/>
-  <circle cx="10" cy="16" r="3" fill="white"/>
-  <text x="24" y="22" font-family="Arial Black, sans-serif" font-size="17" font-weight="900" fill="white" letter-spacing="-0.5">UOL</text>
-</svg>
-      </div>
-      <span class="marquee-sep">·</span>
     </div>
   </div>
   <section class="o-que-e" id="o-que-e">
@@ -960,7 +887,7 @@
             </defs>
             <circle cx="50" cy="50" r="45" fill="rgba(7,12,7,0.85)" stroke="rgba(232,195,147,0.3)" stroke-width="1"/>
             <text font-size="8.8" fill="rgba(232,195,147,0.9)" font-family="DM Sans, sans-serif" font-weight="600" letter-spacing="2.2">
-              <textPath href="#rp">Elevation · Programa Premium · </textPath>
+              <textPath href="#rp">Programa de Aceleração Premium · </textPath>
             </text>
             <image href="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" x="30" y="30" width="40" height="40" opacity="0.9"/>
           </svg>
@@ -1208,7 +1135,7 @@
           <p class="case-text-sm">Eu utilizei um único sistema de vendas que aprendi na Elevation que foi capaz de lotar minha agenda e elevar meu ticket para 10k por cliente.</p>
           <div class="case-stars">★★★★★</div>
           <div class="case-author">
-            <img src="https://framerusercontent.com/images/QWrW0vhWyj5cLEzVol4iPeK2BM.png" alt="Mayara Campos" class="case-avatar" loading="lazy" />
+            <img src="https://framerusercontent.com/images/DgA1Mc8YSqorw0E7Kv8iXh2Bg.png" alt="Mayara Campos" class="case-avatar" loading="lazy" />
             <div>
               <div class="case-name">Mayara Campos</div>
               <div class="case-role">Empresária Beauty</div>
@@ -1228,7 +1155,7 @@
           <p class="case-text-sm">Sistematizamos nosso calendário de campanhas e conseguimos lucrar 10x mais com nossos produtos, cursos e mentorias.</p>
           <div class="case-stars">★★★★★</div>
           <div class="case-author">
-            <img src="https://framerusercontent.com/images/zjbHL2on0kcNrr39Y243BW2yo8.jpg" alt="Bárbara e Waldy" class="case-avatar" loading="lazy" />
+            <img src="https://framerusercontent.com/images/smgDp4OxSQgy5FkwwOoI7JWOY3k.png" alt="Bárbara e Waldy" class="case-avatar" loading="lazy" />
             <div>
               <div class="case-name">Bárbara e Waldy</div>
               <div class="case-role">Bawal Educação e Serviços</div>
@@ -1241,7 +1168,7 @@
           <p class="case-text-sm">Em poucos meses adicionamos mais de 1 milhão de reais em nosso negócio utilizando os sistemas práticos da Elevation.</p>
           <div class="case-stars">★★★★★</div>
           <div class="case-author">
-            <img src="https://framerusercontent.com/images/zjbHL2on0kcNrr39Y243BW2yo8.jpg" alt="May e Thalles Duchini" class="case-avatar" loading="lazy" />
+            <img src="https://framerusercontent.com/images/WItzZ3QDFD78CZwXof9YfgZlKYY.png" alt="May e Thalles Duchini" class="case-avatar" loading="lazy" />
             <div>
               <div class="case-name">May e Thalles Duchini</div>
               <div class="case-role">Fundamente(si)</div>
@@ -1254,7 +1181,7 @@
           <p class="case-text-sm">Eu utilizei um único sistema de vendas que aprendi na Elevation que foi capaz de lotar minha agenda e elevar meu ticket para 10k por cliente.</p>
           <div class="case-stars">★★★★★</div>
           <div class="case-author">
-            <img src="https://framerusercontent.com/images/vRpcDvNxVT8wm7aLYU0Rsmocug8.jpg" alt="Genisson Gabriel" class="case-avatar" loading="lazy" />
+            <img src="https://framerusercontent.com/images/IMUJfd9QlXHAPTlyu35rVljE.png" alt="Genisson Gabriel" class="case-avatar" loading="lazy" />
             <div>
               <div class="case-name">Genisson Gabriel</div>
               <div class="case-role">4Growth Vendas</div>
@@ -1418,8 +1345,8 @@
         RESULTADOS
       </div>
       <h2 class="alumni-title">
-        Quem já passou pela<br />
-        <span>Mentoria Elevation.</span>
+        Quem já passou pelo<br />
+        <span>Programa de Aceleração Elevation.</span>
       </h2>
     </div>
 
@@ -1436,8 +1363,6 @@
         <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/ETXe0El5Uwj6skW3Fm9he2zNbeY.png" alt="Aline Alcântara" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Aline Alcântara</div><div class="alumni-nicho"></div></div>
         <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/1XFcYU2ybdaOMRNpMpLnmBzsSrA.png" alt="Sônia Furkos" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Sônia Furkos</div><div class="alumni-nicho">Beleza</div></div>
         <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/yAvQL7Rmssu2lOsdfcRa1PyfWLE.png" alt="Letícia Ribeiro" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Letícia Ribeiro</div><div class="alumni-nicho">Arquitetura</div></div>
-        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/qjXb27ZZNUzXfwjfY4BbfkbqLxc.png" alt="Taiame" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Taiame</div><div class="alumni-nicho">Reprogramação Mental</div></div>
-        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/gVDWHZR8JOZcJfPZKzuTkjIb8o.png" alt="Leilane" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Leilane</div><div class="alumni-nicho">Concursos</div></div>
         <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/QWrW0vhWyj5cLEzVol4iPeK2BM.png" alt="Mayara Campos" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Mayara Campos</div><div class="alumni-nicho">Beleza</div></div>
         <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/CNQjTvsq8Luo7a3vs3iSMvMQg.png" alt="Marina Alibia" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Marina Alibia</div><div class="alumni-nicho">Marketing</div></div>
         <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/7c0VHU28vbV9p2LH6jldt6XsMDc.png" alt="Nayara Mourat" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Nayara Mourat</div><div class="alumni-nicho">Tarot</div></div>
@@ -1453,8 +1378,6 @@
         <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/ETXe0El5Uwj6skW3Fm9he2zNbeY.png" alt="Aline Alcântara" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Aline Alcântara</div><div class="alumni-nicho"></div></div>
         <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/1XFcYU2ybdaOMRNpMpLnmBzsSrA.png" alt="Sônia Furkos" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Sônia Furkos</div><div class="alumni-nicho">Beleza</div></div>
         <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/yAvQL7Rmssu2lOsdfcRa1PyfWLE.png" alt="Letícia Ribeiro" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Letícia Ribeiro</div><div class="alumni-nicho">Arquitetura</div></div>
-        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/qjXb27ZZNUzXfwjfY4BbfkbqLxc.png" alt="Taiame" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Taiame</div><div class="alumni-nicho">Reprogramação Mental</div></div>
-        <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/gVDWHZR8JOZcJfPZKzuTkjIb8o.png" alt="Leilane" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Leilane</div><div class="alumni-nicho">Concursos</div></div>
         <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/QWrW0vhWyj5cLEzVol4iPeK2BM.png" alt="Mayara Campos" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Mayara Campos</div><div class="alumni-nicho">Beleza</div></div>
         <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/CNQjTvsq8Luo7a3vs3iSMvMQg.png" alt="Marina Alibia" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Marina Alibia</div><div class="alumni-nicho">Marketing</div></div>
         <div class="alumni-card"><div class="alumni-img-wrap"><img src="https://framerusercontent.com/images/7c0VHU28vbV9p2LH6jldt6XsMDc.png" alt="Nayara Mourat" loading="lazy" /><div class="alumni-logo-badge"><img src="https://framerusercontent.com/images/GxlllPYpLbq5c8DN7Vd5O8qs.svg" alt="Elevation" /></div></div><div class="alumni-name">Nayara Mourat</div><div class="alumni-nicho">Tarot</div></div>
