@@ -571,7 +571,7 @@
       inset: 0;
       width: 100%; height: 100%;
       object-fit: cover;
-      object-position: top center;
+      object-position: center 15%;
       transition: transform 0.5s ease;
     }
     .mentor-card:hover .mentor-photo { transform: scale(1.015); }
@@ -717,7 +717,7 @@
       display: flex; align-items: center; justify-content: center;
       padding: 5px;
     }
-    .alumni-logo-badge img { width: 100%; height: 100%; object-fit: contain; }
+    .alumni-logo-badge img { width: 100%; height: 100%; object-fit: contain; filter: brightness(0) invert(1); }
     .alumni-name { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.85); line-height: 1.3; }
     .alumni-nicho { font-size: 11px; color: rgba(255,255,255,0.4); letter-spacing: 0.02em; }
 
@@ -895,11 +895,29 @@
   <div class="logo-bar">
     <div class="marquee-track">
       <!-- Set 1 -->
-      <div class="marquee-item"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Rede_Globo_logo_2021.svg" alt="Globo" class="tv-logo" /></div>
+      <div class="marquee-item">
+        <svg height="26" viewBox="0 0 90 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Globo" style="opacity:0.8;">
+          <circle cx="14" cy="14" r="12" fill="none" stroke="white" stroke-width="2.2"/>
+          <ellipse cx="14" cy="14" rx="5.5" ry="12" fill="none" stroke="white" stroke-width="1.5"/>
+          <line x1="2" y1="14" x2="26" y2="14" stroke="white" stroke-width="1.5"/>
+          <text x="33" y="19" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="white" letter-spacing="0.3">globo</text>
+        </svg>
+      </div>
       <span class="marquee-sep">·</span>
-      <div class="marquee-item"><img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Logotipo_da_Rede_Bandeirantes.svg" alt="Band" class="tv-logo" /></div>
+      <div class="marquee-item">
+        <svg height="26" viewBox="0 0 72 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Band" style="opacity:0.8;">
+          <text x="0" y="20" font-family="Arial Black, sans-serif" font-size="18" font-weight="900" fill="white" letter-spacing="2">BAND</text>
+        </svg>
+      </div>
       <span class="marquee-sep">·</span>
-      <div class="marquee-item"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/RedeTV%21_logo_2019.svg" alt="RedeTV" class="tv-logo" /></div>
+      <div class="marquee-item">
+        <svg height="26" viewBox="0 0 88 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="RedeTV" style="opacity:0.8;">
+          <text x="0" y="19" font-family="Arial Black, sans-serif" font-size="11" font-weight="900" fill="white" letter-spacing="0.5">REDE</text>
+          <rect x="42" y="4" width="20" height="14" rx="2" fill="white"/>
+          <text x="52" y="15" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="9" font-weight="900" fill="#111">TV</text>
+          <text x="65" y="19" font-family="Arial Black, sans-serif" font-size="13" font-weight="900" fill="white">!</text>
+        </svg>
+      </div>
       <span class="marquee-sep">·</span>
       <div class="marquee-item">
         <svg height="22" viewBox="0 0 68 24" fill="white" xmlns="http://www.w3.org/2000/svg" aria-label="UOL" style="opacity:0.75;">
@@ -922,11 +940,29 @@
       </div>
       <span class="marquee-sep">·</span>
       <!-- Set 2 (duplicado para loop) -->
-      <div class="marquee-item"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Rede_Globo_logo_2021.svg" alt="Globo" class="tv-logo" /></div>
+      <div class="marquee-item">
+        <svg height="26" viewBox="0 0 90 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Globo" style="opacity:0.8;">
+          <circle cx="14" cy="14" r="12" fill="none" stroke="white" stroke-width="2.2"/>
+          <ellipse cx="14" cy="14" rx="5.5" ry="12" fill="none" stroke="white" stroke-width="1.5"/>
+          <line x1="2" y1="14" x2="26" y2="14" stroke="white" stroke-width="1.5"/>
+          <text x="33" y="19" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="white" letter-spacing="0.3">globo</text>
+        </svg>
+      </div>
       <span class="marquee-sep">·</span>
-      <div class="marquee-item"><img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Logotipo_da_Rede_Bandeirantes.svg" alt="Band" class="tv-logo" /></div>
+      <div class="marquee-item">
+        <svg height="26" viewBox="0 0 72 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Band" style="opacity:0.8;">
+          <text x="0" y="20" font-family="Arial Black, sans-serif" font-size="18" font-weight="900" fill="white" letter-spacing="2">BAND</text>
+        </svg>
+      </div>
       <span class="marquee-sep">·</span>
-      <div class="marquee-item"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/RedeTV%21_logo_2019.svg" alt="RedeTV" class="tv-logo" /></div>
+      <div class="marquee-item">
+        <svg height="26" viewBox="0 0 88 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="RedeTV" style="opacity:0.8;">
+          <text x="0" y="19" font-family="Arial Black, sans-serif" font-size="11" font-weight="900" fill="white" letter-spacing="0.5">REDE</text>
+          <rect x="42" y="4" width="20" height="14" rx="2" fill="white"/>
+          <text x="52" y="15" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="9" font-weight="900" fill="#111">TV</text>
+          <text x="65" y="19" font-family="Arial Black, sans-serif" font-size="13" font-weight="900" fill="white">!</text>
+        </svg>
+      </div>
       <span class="marquee-sep">·</span>
       <div class="marquee-item">
         <svg height="22" viewBox="0 0 68 24" fill="white" xmlns="http://www.w3.org/2000/svg" aria-label="UOL" style="opacity:0.75;">
@@ -1219,7 +1255,7 @@
           </div>
         </div>
         <div class="case-video-wrap">
-          <iframe src="https://www.youtube.com/embed/OSUfjr2xPzQ?rel=0&modestbranding=1" title="Depoimento Elevation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          <iframe src="https://www.youtube-nocookie.com/embed/OSUfjr2xPzQ?rel=0&modestbranding=1&enablejsapi=0" title="Depoimento Elevation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
         </div>
       </div>
 
@@ -1482,19 +1518,16 @@
         <div class="event-card"><img src="https://framerusercontent.com/images/S6Es7hHNbKC75LkIVyjGpZ6DQ.jpg" alt="Evento Elevation" loading="lazy" /></div>
         <div class="event-card"><img src="https://framerusercontent.com/images/zjbHL2on0kcNrr39Y243BW2yo8.jpg" alt="Evento Elevation" loading="lazy" /></div>
         <div class="event-card"><img src="https://framerusercontent.com/images/vRpcDvNxVT8wm7aLYU0Rsmocug8.jpg" alt="Evento Elevation" loading="lazy" /></div>
-        <div class="event-card"><img src="https://framerusercontent.com/images/wzMEnuMWKRtzUtyRz0vlctoXs2Y.webp" alt="Evento Elevation" loading="lazy" /></div>
         <div class="event-card"><img src="https://framerusercontent.com/images/gf3l7EyfPjgwPdSje9di2tofTmw.jpg" alt="Evento Elevation" loading="lazy" /></div>
         <div class="event-card"><img src="https://framerusercontent.com/images/eYSxJRP781INyfgLGW28Xdccoc.jpg" alt="Evento Elevation" loading="lazy" /></div>
         <div class="event-card"><img src="https://framerusercontent.com/images/S6Es7hHNbKC75LkIVyjGpZ6DQ.jpg" alt="Evento Elevation" loading="lazy" /></div>
         <div class="event-card"><img src="https://framerusercontent.com/images/zjbHL2on0kcNrr39Y243BW2yo8.jpg" alt="Evento Elevation" loading="lazy" /></div>
         <div class="event-card"><img src="https://framerusercontent.com/images/vRpcDvNxVT8wm7aLYU0Rsmocug8.jpg" alt="Evento Elevation" loading="lazy" /></div>
-        <div class="event-card"><img src="https://framerusercontent.com/images/wzMEnuMWKRtzUtyRz0vlctoXs2Y.webp" alt="Evento Elevation" loading="lazy" /></div>
         <div class="event-card"><img src="https://framerusercontent.com/images/gf3l7EyfPjgwPdSje9di2tofTmw.jpg" alt="Evento Elevation" loading="lazy" /></div>
         <div class="event-card"><img src="https://framerusercontent.com/images/eYSxJRP781INyfgLGW28Xdccoc.jpg" alt="Evento Elevation" loading="lazy" /></div>
         <div class="event-card"><img src="https://framerusercontent.com/images/S6Es7hHNbKC75LkIVyjGpZ6DQ.jpg" alt="Evento Elevation" loading="lazy" /></div>
         <div class="event-card"><img src="https://framerusercontent.com/images/zjbHL2on0kcNrr39Y243BW2yo8.jpg" alt="Evento Elevation" loading="lazy" /></div>
         <div class="event-card"><img src="https://framerusercontent.com/images/vRpcDvNxVT8wm7aLYU0Rsmocug8.jpg" alt="Evento Elevation" loading="lazy" /></div>
-        <div class="event-card"><img src="https://framerusercontent.com/images/wzMEnuMWKRtzUtyRz0vlctoXs2Y.webp" alt="Evento Elevation" loading="lazy" /></div>
       </div>
     </div>
   </section>
