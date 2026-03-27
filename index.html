@@ -542,13 +542,13 @@
     .mentores-title span { color: rgba(255,255,255,0.4); font-weight: 400; }
     .mentores-accordion {
       display: flex;
-      gap: 6px;
-      height: clamp(380px,50vw,580px);
+      gap: 8px;
+      height: clamp(360px,30vw,450px);
       width: 100%;
     }
     .mentor-card {
       position: relative;
-      flex: 0 0 100px;
+      flex: 0 0 115px;
       border-radius: 14px;
       overflow: hidden;
       cursor: pointer;
@@ -640,56 +640,59 @@
       text-shadow: 0 1px 4px rgba(0,0,0,0.6);
     }
     /* ============================================================
-       MOBILE GLOBAL — compensar nav fixa
+       MOBILE GLOBAL — compensar nav fixa + accordion vertical
     ============================================================ */
     @media (max-width: 767px) {
-      /* scroll-margin para compensar nav fixa nas âncoras */
+      /* scroll-margin para seções com âncora */
       section[id] { scroll-margin-top: 68px; }
 
-      /* Mentor accordion — vertical stack no mobile */
+      /* Accordion vertical — idêntico ao original mobile */
       .mentores-accordion {
         flex-direction: column;
-        height: auto;
-        gap: 10px;
+        height: auto !important;
+        gap: 8px;
       }
       .mentor-card {
-        flex: none;
+        flex: none !important;
         width: 100%;
-        height: 90px;
-        border-radius: 14px;
-        transition: height 0.5s cubic-bezier(0.4,0,0.2,1);
+        height: 88px;
         min-width: unset;
+        transition: height 0.5s cubic-bezier(0.4,0,0.2,1), flex 0s;
+        border-radius: 12px;
       }
       .mentor-card.active {
-        height: 420px;
-        max-width: none;
+        height: 460px;
       }
-      /* No mobile, número fica menor e à esquerda */
-      .mentor-num-text { font-size: 28px; }
-      /* Card colapsado: número + nome lado a lado */
-      .mentor-card:not(.active) .mentor-footer {
-        bottom: auto;
-        top: 50%;
-        transform: translateY(-50%);
-        left: 80px;
-      }
-      .mentor-card:not(.active) .mentor-info { display: none; }
-      /* Card ativo: info visível no bottom */
-      .mentor-card.active .mentor-info {
-        opacity: 1;
-        transform: translateY(0);
-        bottom: 48px;
-      }
-      .mentor-card.active .mentor-footer { bottom: 14px; left: 16px; }
-      /* Número no card colapsado mobile */
+
+      /* Número no card colapsado: centralizado verticalmente */
       .mentor-card:not(.active) .mentor-number {
         top: 50%;
+        left: 14px;
         transform: translateY(-50%);
-        left: 16px;
       }
       .mentor-card:not(.active) .mentor-number-hr { display: none; }
-      .mentor-name { font-size: 14px; }
+      .mentor-card:not(.active) .mentor-num-text { display: none; }
+      .mentor-card:not(.active) .mentor-num-small { display: block; }
+
+      /* Nome no card colapsado: visível ao lado do número */
+      .mentor-card:not(.active) .mentor-footer {
+        position: absolute;
+        bottom: auto;
+        top: 50%;
+        left: 64px;
+        transform: translateY(-50%);
+        right: 16px;
+      }
+      .mentor-card:not(.active) .mentor-info { opacity: 0 !important; pointer-events: none; }
+
+      /* Card ativo mobile */
+      .mentor-card.active .mentor-number { top: 16px; left: 14px; transform: none; }
+      .mentor-num-text { font-size: 32px; }
+      .mentor-card.active .mentor-info { bottom: 54px; left: 14px; right: 14px; }
+      .mentor-card.active .mentor-footer { bottom: 14px; left: 14px; }
+      .mentor-card.active .mentor-number-hr { display: block; }
       .mentor-bio { font-size: 13px; max-width: 100%; }
+      .mentor-name { font-size: 15px; }
     }
 
     /* ============================================================
