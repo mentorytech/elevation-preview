@@ -639,10 +639,57 @@
       text-overflow: ellipsis;
       text-shadow: 0 1px 4px rgba(0,0,0,0.6);
     }
+    /* ============================================================
+       MOBILE GLOBAL — compensar nav fixa
+    ============================================================ */
     @media (max-width: 767px) {
-      .mentores-accordion { flex-direction: column; height: auto; }
-      .mentor-card { flex: none; height: 100px; transition: height 0.5s cubic-bezier(0.4,0,0.2,1); }
-      .mentor-card.active { height: 380px; }
+      /* scroll-margin para compensar nav fixa nas âncoras */
+      section[id] { scroll-margin-top: 68px; }
+
+      /* Mentor accordion — vertical stack no mobile */
+      .mentores-accordion {
+        flex-direction: column;
+        height: auto;
+        gap: 10px;
+      }
+      .mentor-card {
+        flex: none;
+        width: 100%;
+        height: 90px;
+        border-radius: 14px;
+        transition: height 0.5s cubic-bezier(0.4,0,0.2,1);
+        min-width: unset;
+      }
+      .mentor-card.active {
+        height: 420px;
+        max-width: none;
+      }
+      /* No mobile, número fica menor e à esquerda */
+      .mentor-num-text { font-size: 28px; }
+      /* Card colapsado: número + nome lado a lado */
+      .mentor-card:not(.active) .mentor-footer {
+        bottom: auto;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 80px;
+      }
+      .mentor-card:not(.active) .mentor-info { display: none; }
+      /* Card ativo: info visível no bottom */
+      .mentor-card.active .mentor-info {
+        opacity: 1;
+        transform: translateY(0);
+        bottom: 48px;
+      }
+      .mentor-card.active .mentor-footer { bottom: 14px; left: 16px; }
+      /* Número no card colapsado mobile */
+      .mentor-card:not(.active) .mentor-number {
+        top: 50%;
+        transform: translateY(-50%);
+        left: 16px;
+      }
+      .mentor-card:not(.active) .mentor-number-hr { display: none; }
+      .mentor-name { font-size: 14px; }
+      .mentor-bio { font-size: 13px; max-width: 100%; }
     }
 
     /* ============================================================
