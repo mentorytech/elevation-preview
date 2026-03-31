@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-WV484PF');</script>
+  <!-- End Google Tag Manager -->
+  
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Elevation — Mentory International®</title>
@@ -882,8 +890,55 @@
     .tv-logo { height: 28px; width: auto; filter: grayscale(1) brightness(0) invert(1); opacity: 0.75; transition: opacity 0.3s; }
     .tv-logo:hover { opacity: 1; }
   </style>
+
+  <!-- UTM Parameter Passthrough -->
+  <script>
+  (function() {
+    // Captura UTMs da URL atual
+    function getUtmParams() {
+      const params = new URLSearchParams(window.location.search);
+      const utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'utm_id', 'fbclid', 'gclid'];
+      const utms = {};
+      utmKeys.forEach(key => {
+        if (params.has(key)) {
+          utms[key] = params.get(key);
+        }
+      });
+      return utms;
+    }
+
+    // Adiciona UTMs a uma URL
+    function appendUtms(url, utms) {
+      const urlObj = new URL(url);
+      Object.entries(utms).forEach(([key, value]) => {
+        urlObj.searchParams.set(key, value);
+      });
+      return urlObj.toString();
+    }
+
+    // Atualiza todos os links de CTA quando a página carrega
+    document.addEventListener('DOMContentLoaded', function() {
+      const utms = getUtmParams();
+      if (Object.keys(utms).length === 0) return;
+
+      // Seleciona todos os links que vão para o chat
+      const ctaLinks = document.querySelectorAll('a[href*="chat.mentoryinternational.com"]');
+      ctaLinks.forEach(link => {
+        link.href = appendUtms(link.href, utms);
+      });
+
+      console.log('UTMs aplicados:', utms);
+    });
+  })();
+  </script>
+
 </head>
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WV484PF"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  
 
   <!-- SCROLL PROGRESS -->
   <div id="scroll-progress"></div>
@@ -904,7 +959,7 @@
       <li><a href="#resultados">Resultados</a></li>
       <li><a href="#mentores">Mentores</a></li>
     </ul>
-    <a href="https://chat.mentoryacademy.com.br/elevation-aplicacao" class="nav-cta" target="_blank" rel="noopener">
+    <a href="https://chat.mentoryinternational.com/elevation-aplicacao" class="nav-cta" target="_blank" rel="noopener">
       <span class="nav-cta-arrow">→</span>
       Agendar
     </a>
@@ -925,7 +980,7 @@
       </div>
       <h1>O programa de aceleração premium para empresários <strong>que estão prontos para escalar seu negócio para os 7 dígitos.</strong></h1>
       <p class="hero-sub">Construa um negócio sólido e lucrativo com nosso sistema único de vendas que gera lucro, paz e previsibilidade.</p>
-      <a href="https://chat.mentoryacademy.com.br/elevation-aplicacao" class="hero-cta-btn" target="_blank" rel="noopener">
+      <a href="https://chat.mentoryinternational.com/elevation-aplicacao" class="hero-cta-btn" target="_blank" rel="noopener">
         <span class="btn-arrow">→</span>
         Agendar uma apresentação
       </a>
@@ -1589,7 +1644,7 @@
         <h2 class="cta-final-title">
           Não perca tempo e<br />faça já a sua aplicação!
         </h2>
-        <a href="https://chat.mentoryacademy.com.br/elevation-aplicacao" class="cta-btn-main" target="_blank" rel="noopener">
+        <a href="https://chat.mentoryinternational.com/elevation-aplicacao" class="cta-btn-main" target="_blank" rel="noopener">
           <span class="btn-arrow">→</span>
           Agendar uma apresentação
         </a>
