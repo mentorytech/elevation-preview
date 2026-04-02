@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aplicação Exclusiva — Mentory International®</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── Reset & Base ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #B8922A;
+      --gold-light: #D4A843;
+      --gold-dim: rgba(184,146,42,0.15);
+      --black: #000000;
+      --white: #FFFFFF;
+      --text-muted: rgba(255,255,255,0.5);
+      --border: rgba(255,255,255,0.2);
+      --border-focus: #B8922A;
+      --error: #E05555;
+      --card-bg: rgba(255,255,255,0.04);
+      --card-hover: rgba(184,146,42,0.08);
+      --card-selected: rgba(184,146,42,0.12);
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Inter', system-ui, sans-serif;
+      background-color: var(--black);
+      color: var(--white);
+      -webkit-font-smoothing: antialiased;
+      overflow: hidden;
+    }
+
+    /* ─── Noise Grain Texture ─── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.04;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
+    }
+
+    /* ─── Progress Bar ─── */
+    #progress-bar-wrap {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: rgba(255,255,255,0.08);
+      z-index: 100;
+    }
+    #progress-bar {
+      height: 100%;
+      background: var(--gold);
+      width: 0%;
+      transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* ─── App Shell ─── */
+    #app {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* ─── Step Containers ─── */
+    .step {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 24px 80px;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(20px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      overflow-y: auto;
+    }
+    .step.active {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateY(0);
+    }
+    .step.exit {
+      opacity: 0;
+      transform: translateY(-20px);
+      pointer-events: none;
+    }
+
+    .step-inner {
+      width: 100%;
+      max-width: 600px;
+    }
+
+    /* ─── Step Label ─── */
+    .step-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 32px;
+    }
+
+    /* ─── Questions ─── */
+    .question {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(24px, 5vw, 36px);
+      font-weight: 500;
+      line-height: 1.25;
+      color: var(--white);
+      margin-bottom: 40px;
+      letter-spacing: -0.01em;
+    }
+
+    /* ─── Inputs ─── */
+    .input-wrap {
+      position: relative;
+      margin-bottom: 8px;
+    }
+
+    .form-input, .form-textarea {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--border);
+      outline: none;
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 18px;
+      font-weight: 300;
+      padding: 12px 0;
+      transition: border-color 0.25s ease;
+      -webkit-appearance: none;
+    }
+    .form-input::placeholder, .form-textarea::placeholder {
+      color: var(--text-muted);
+    }
+    .form-input:focus, .form-textarea:focus {
+      border-bottom-color: var(--gold);
+    }
+    .form-input.error, .form-textarea.error {
+      border-bottom-color: var(--error);
+      animation: shake 0.4s ease;
+    }
+    .form-textarea {
+      resize: none;
+      line-height: 1.6;
+    }
+
+    .input-hint {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 10px;
+      line-height: 1.5;
+    }
+    .input-error {
+      font-size: 12px;
+      color: var(--error);
+      margin-top: 8px;
+      min-height: 16px;
+      display: none;
+    }
+    .input-error.visible {
+      display: block;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20% { transform: translateX(-8px); }
+      40% { transform: translateX(8px); }
+      60% { transform: translateX(-5px); }
+      80% { transform: translateX(5px); }
+    }
+
+    /* ─── Choice Cards ─── */
+    .choices {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .choice-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: var(--card-bg);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 4px;
+      padding: 16px 20px;
+      cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+      font-size: 15px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.4;
+      text-align: left;
+      position: relative;
+      outline: none;
+    }
+    .choice-card:hover {
+      background: var(--card-hover);
+      border-color: rgba(184,146,42,0.3);
+    }
+    .choice-card.focused {
+      border-color: rgba(184,146,42,0.5);
+      background: var(--card-hover);
+    }
+    .choice-card.selected {
+      background: var(--card-selected);
+      border-color: var(--gold);
+      color: var(--white);
+    }
+    .choice-card:active {
+      transform: scale(0.99);
+    }
+
+    .choice-letter {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 28px;
+      height: 28px;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 3px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+    }
+    .choice-card.selected .choice-letter {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: rgba(184,146,42,0.1);
+    }
+    .choice-card.focused .choice-letter {
+      border-color: rgba(184,146,42,0.5);
+      color: rgba(184,146,42,0.7);
+    }
+
+    /* ─── Buttons ─── */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--gold);
+      color: var(--black);
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: none;
+      padding: 16px 32px;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.15s ease, opacity 0.2s ease;
+      border-radius: 2px;
+      margin-top: 32px;
+    }
+    .btn-primary:hover {
+      background: var(--gold-light);
+    }
+    .btn-primary:active {
+      transform: scale(0.98);
+    }
+    .btn-primary:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .btn-arrow {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* ─── Back Button ─── */
+    .btn-back {
+      position: fixed;
+      bottom: 32px;
+      left: 32px;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.2s ease;
+      z-index: 50;
+      padding: 8px 0;
+    }
+    .btn-back:hover {
+      color: var(--white);
+    }
+    .btn-back svg {
+      width: 14px;
+      height: 14px;
+    }
+    .btn-back.hidden {
+      display: none;
+    }
+
+    /* ─── Enter Hint ─── */
+    .enter-hint {
+      margin-top: 16px;
+      font-size: 11px;
+      color: rgba(255,255,255,0.25);
+      letter-spacing: 0.05em;
+    }
+    .enter-hint kbd {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 3px;
+      padding: 2px 6px;
+    }
+
+    /* ─── Welcome Screen ─── */
+    .welcome-screen {
+      text-align: center;
+    }
+    .wordmark {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(14px, 2.5vw, 18px);
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 64px;
+    }
+    .wordmark span {
+      font-weight: 400;
+      font-style: italic;
+      letter-spacing: 0.08em;
+    }
+    .welcome-eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .welcome-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 7vw, 56px);
+      font-weight: 500;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+    .welcome-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(14px, 2.5vw, 18px);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--gold);
+      margin-bottom: 48px;
+    }
+    .welcome-divider {
+      width: 40px;
+      height: 1px;
+      background: rgba(184,146,42,0.4);
+      margin: 0 auto 40px;
+    }
+    .welcome-body {
+      font-size: 14px;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.55);
+      max-width: 480px;
+      margin: 0 auto 48px;
+    }
+
+    /* ─── Success Screen ─── */
+    .success-screen {
+      text-align: center;
+    }
+    .success-icon {
+      margin: 0 auto 40px;
+      width: 72px;
+      height: 72px;
+    }
+    .success-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 500;
+      margin-bottom: 24px;
+      letter-spacing: -0.01em;
+    }
+    .success-body {
+      font-size: 15px;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.65);
+      max-width: 440px;
+      margin: 0 auto 48px;
+    }
+    .success-footer {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      color: rgba(255,255,255,0.25);
+      text-transform: uppercase;
+    }
+    .success-footer span {
+      color: rgba(184,146,42,0.6);
+    }
+
+    /* ─── Mobile Tweaks ─── */
+    @media (max-width: 640px) {
+      .step { padding: 80px 20px 100px; }
+      .btn-back { bottom: 24px; left: 20px; }
+      .choice-card { padding: 14px 16px; font-size: 14px; }
+      .btn-primary { width: 100%; justify-content: center; }
+    }
+
+    /* ─── Scrollbar ─── */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 2px; }
+  </style>
+</head>
+<body>
+
+<!-- Progress Bar -->
+<div id="progress-bar-wrap">
+  <div id="progress-bar"></div>
+</div>
+
+<!-- App -->
+<div id="app">
+
+  <!-- STEP 0: Welcome -->
+  <div class="step active" id="step-0" data-step="0">
+    <div class="step-inner welcome-screen">
+      <div class="wordmark">Mentory <span>International</span>®</div>
+      <div class="welcome-eyebrow">Aplicação Exclusiva</div>
+      <h1 class="welcome-title">Soluções personalizadas</h1>
+      <p class="welcome-subtitle">de R$5.000 a R$150.000</p>
+      <div class="welcome-divider"></div>
+      <p class="welcome-body">
+        Preencha este formulário com atenção.<br />
+        Nossas soluções são para empresários e profissionais<br />
+        que estão prontos para escalar com lucro e estratégia.
+      </p>
+      <button class="btn-primary" onclick="goToStep(1)">
+        Iniciar Aplicação
+        <svg class="btn-arrow" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 9H15M15 9L9 3M15 9L9 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- STEP 1: Nome -->
+  <div class="step" id="step-1" data-step="1">
+    <div class="step-inner">
+      <div class="step-label">01 / 09</div>
+      <h2 class="question">Qual é o seu nome completo?</h2>
+      <div class="input-wrap">
+        <input
+          class="form-input"
+          id="input-nome"
+          type="text"
+          placeholder="Seu nome completo"
+          autocomplete="name"
+          data-field="nome"
+        />
+        <div class="input-error" id="error-nome">Por favor, informe seu nome completo.</div>
+      </div>
+      <button class="btn-primary" onclick="advanceStep(1)">
+        Avançar
+        <svg class="btn-arrow" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 9H15M15 9L9 3M15 9L9 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <div class="enter-hint">ou pressione <kbd>Enter ↵</kbd></div>
+    </div>
+  </div>
+
+  <!-- STEP 2: WhatsApp -->
+  <div class="step" id="step-2" data-step="2">
+    <div class="step-inner">
+      <div class="step-label">02 / 09</div>
+      <h2 class="question">Qual é o seu WhatsApp?</h2>
+      <div class="input-wrap">
+        <input
+          class="form-input"
+          id="input-whatsapp"
+          type="tel"
+          placeholder="(11) 99999-9999"
+          autocomplete="tel"
+          data-field="whatsapp"
+        />
+        <div class="input-hint">Você receberá nosso contato por aqui.</div>
+        <div class="input-error" id="error-whatsapp">Informe um WhatsApp válido com DDD (mínimo 10 dígitos).</div>
+      </div>
+      <button class="btn-primary" onclick="advanceStep(2)">
+        Avançar
+        <svg class="btn-arrow" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 9H15M15 9L9 3M15 9L9 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <div class="enter-hint">ou pressione <kbd>Enter ↵</kbd></div>
+    </div>
+  </div>
+
+  <!-- STEP 3: Email -->
+  <div class="step" id="step-3" data-step="3">
+    <div class="step-inner">
+      <div class="step-label">03 / 09</div>
+      <h2 class="question">Qual é o seu e-mail?</h2>
+      <div class="input-wrap">
+        <input
+          class="form-input"
+          id="input-email"
+          type="email"
+          placeholder="seu@email.com.br"
+          autocomplete="email"
+          data-field="email"
+        />
+        <div class="input-error" id="error-email">Informe um endereço de e-mail válido.</div>
+      </div>
+      <button class="btn-primary" onclick="advanceStep(3)">
+        Avançar
+        <svg class="btn-arrow" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 9H15M15 9L9 3M15 9L9 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <div class="enter-hint">ou pressione <kbd>Enter ↵</kbd></div>
+    </div>
+  </div>
+
+  <!-- STEP 4: Segmento -->
+  <div class="step" id="step-4" data-step="4">
+    <div class="step-inner">
+      <div class="step-label">04 / 09</div>
+      <h2 class="question">Qual é o seu segmento ou mercado de atuação?</h2>
+      <div class="input-wrap">
+        <input
+          class="form-input"
+          id="input-segmento"
+          type="text"
+          placeholder="Ex: Clínica médica, consultoria, e-commerce..."
+          data-field="segmento"
+        />
+        <div class="input-error" id="error-segmento">Por favor, informe seu segmento de atuação.</div>
+      </div>
+      <button class="btn-primary" onclick="advanceStep(4)">
+        Avançar
+        <svg class="btn-arrow" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 9H15M15 9L9 3M15 9L9 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <div class="enter-hint">ou pressione <kbd>Enter ↵</kbd></div>
+    </div>
+  </div>
+
+  <!-- STEP 5: Faturamento -->
+  <div class="step" id="step-5" data-step="5">
+    <div class="step-inner">
+      <div class="step-label">05 / 09</div>
+      <h2 class="question">Qual é o faturamento anual do seu negócio?</h2>
+      <div class="choices" id="choices-faturamento" data-field="faturamento">
+        <button class="choice-card" data-value="Até R$100 mil/ano" onclick="selectChoice(this, 5)" tabindex="0">
+          <span class="choice-letter">A</span>
+          <span>Até R$100 mil/ano</span>
+        </button>
+        <button class="choice-card" data-value="R$100 mil a R$500 mil/ano" onclick="selectChoice(this, 5)" tabindex="0">
+          <span class="choice-letter">B</span>
+          <span>R$100 mil a R$500 mil/ano</span>
+        </button>
+        <button class="choice-card" data-value="R$500 mil a R$2 milhões/ano" onclick="selectChoice(this, 5)" tabindex="0">
+          <span class="choice-letter">C</span>
+          <span>R$500 mil a R$2 milhões/ano</span>
+        </button>
+        <button class="choice-card" data-value="Acima de R$2 milhões/ano" onclick="selectChoice(this, 5)" tabindex="0">
+          <span class="choice-letter">D</span>
+          <span>Acima de R$2 milhões/ano</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 6: Tempo de negócio -->
+  <div class="step" id="step-6" data-step="6">
+    <div class="step-inner">
+      <div class="step-label">06 / 09</div>
+      <h2 class="question">Há quanto tempo você tem o seu negócio?</h2>
+      <div class="choices" id="choices-tempo" data-field="tempo_negocio">
+        <button class="choice-card" data-value="Menos de 1 ano" onclick="selectChoice(this, 6)" tabindex="0">
+          <span class="choice-letter">A</span>
+          <span>Menos de 1 ano</span>
+        </button>
+        <button class="choice-card" data-value="Entre 1 e 3 anos" onclick="selectChoice(this, 6)" tabindex="0">
+          <span class="choice-letter">B</span>
+          <span>Entre 1 e 3 anos</span>
+        </button>
+        <button class="choice-card" data-value="Entre 3 e 7 anos" onclick="selectChoice(this, 6)" tabindex="0">
+          <span class="choice-letter">C</span>
+          <span>Entre 3 e 7 anos</span>
+        </button>
+        <button class="choice-card" data-value="Mais de 7 anos" onclick="selectChoice(this, 6)" tabindex="0">
+          <span class="choice-letter">D</span>
+          <span>Mais de 7 anos</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 7: Maior dificuldade -->
+  <div class="step" id="step-7" data-step="7">
+    <div class="step-inner">
+      <div class="step-label">07 / 09</div>
+      <h2 class="question">Qual é a sua maior dificuldade hoje?</h2>
+      <div class="choices" id="choices-dificuldade" data-field="maior_dificuldade">
+        <button class="choice-card" data-value="Não consigo escalar além do meu esforço pessoal" onclick="selectChoice(this, 7)" tabindex="0">
+          <span class="choice-letter">A</span>
+          <span>Não consigo escalar além do meu esforço pessoal</span>
+        </button>
+        <button class="choice-card" data-value="Minha marca não gera autoridade e desejo suficientes" onclick="selectChoice(this, 7)" tabindex="0">
+          <span class="choice-letter">B</span>
+          <span>Minha marca não gera autoridade e desejo suficientes</span>
+        </button>
+        <button class="choice-card" data-value="Meus clientes pechincham — não consigo cobrar o que mereço" onclick="selectChoice(this, 7)" tabindex="0">
+          <span class="choice-letter">C</span>
+          <span>Meus clientes pechincham — não consigo cobrar o que mereço</span>
+        </button>
+        <button class="choice-card" data-value="Minha operação depende 100% de mim" onclick="selectChoice(this, 7)" tabindex="0">
+          <span class="choice-letter">D</span>
+          <span>Minha operação depende 100% de mim</span>
+        </button>
+        <button class="choice-card" data-value="Não sei como usar IA para crescer com menos trabalho" onclick="selectChoice(this, 7)" tabindex="0">
+          <span class="choice-letter">E</span>
+          <span>Não sei como usar IA para crescer com menos trabalho</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 8: Como conheceu -->
+  <div class="step" id="step-8" data-step="8">
+    <div class="step-inner">
+      <div class="step-label">08 / 09</div>
+      <h2 class="question">Como você conheceu a Mentory International®?</h2>
+      <div class="choices" id="choices-conheceu" data-field="como_conheceu">
+        <button class="choice-card" data-value="Instagram do Ed Souza" onclick="selectChoice(this, 8)" tabindex="0">
+          <span class="choice-letter">A</span>
+          <span>Instagram do Ed Souza</span>
+        </button>
+        <button class="choice-card" data-value="Instagram da Clara do Vale" onclick="selectChoice(this, 8)" tabindex="0">
+          <span class="choice-letter">B</span>
+          <span>Instagram da Clara do Vale</span>
+        </button>
+        <button class="choice-card" data-value="Indicação de um aluno" onclick="selectChoice(this, 8)" tabindex="0">
+          <span class="choice-letter">C</span>
+          <span>Indicação de um aluno</span>
+        </button>
+        <button class="choice-card" data-value="YouTube" onclick="selectChoice(this, 8)" tabindex="0">
+          <span class="choice-letter">D</span>
+          <span>YouTube</span>
+        </button>
+        <button class="choice-card" data-value="Outra rede ou mídia" onclick="selectChoice(this, 8)" tabindex="0">
+          <span class="choice-letter">E</span>
+          <span>Outra rede ou mídia</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 9: Motivação -->
+  <div class="step" id="step-9" data-step="9">
+    <div class="step-inner">
+      <div class="step-label">09 / 09</div>
+      <h2 class="question">O que te motivou a aplicar agora?</h2>
+      <div class="input-wrap">
+        <textarea
+          class="form-input form-textarea"
+          id="input-motivacao"
+          rows="4"
+          placeholder="Conte brevemente sobre o momento do seu negócio e o que você espera transformar..."
+          data-field="motivacao"
+        ></textarea>
+        <div class="input-hint">Sua resposta nos ajuda a entender como podemos ajudar melhor.</div>
+        <div class="input-error" id="error-motivacao">Por favor, compartilhe sua motivação para aplicar.</div>
+      </div>
+      <button class="btn-primary" id="btn-submit" onclick="submitForm()">
+        Enviar Aplicação
+        <svg class="btn-arrow" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 9H15M15 9L9 3M15 9L9 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <div class="enter-hint">ou pressione <kbd>Ctrl</kbd> + <kbd>Enter ↵</kbd></div>
+    </div>
+  </div>
+
+  <!-- STEP 10: Success -->
+  <div class="step" id="step-10" data-step="10">
+    <div class="step-inner success-screen">
+      <div class="success-icon">
+        <svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="36" cy="36" r="35" stroke="#B8922A" stroke-width="1" stroke-opacity="0.3"/>
+          <circle cx="36" cy="36" r="28" stroke="#B8922A" stroke-width="0.5" stroke-opacity="0.15"/>
+          <path d="M22 36.5L31 45.5L50 27" stroke="#B8922A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h2 class="success-title">Aplicação Recebida.</h2>
+      <p class="success-body">
+        Nossa equipe de especialistas analisará suas respostas e entrará em contato em até 24 horas úteis pelo WhatsApp informado.
+      </p>
+      <p class="success-footer">
+        <span>Mentory International®</span> — Elevando empresários ao próximo nível.
+      </p>
+    </div>
+  </div>
+
+</div>
+
+<!-- Back Button (fixed) -->
+<button class="btn-back hidden" id="btn-back" onclick="goBack()">
+  <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M11 7H3M3 7L7 3M3 7L7 11" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  Voltar
+</button>
+
+<script>
+  // ─── State ───
+  let currentStep = 0;
+  const TOTAL_STEPS = 9; // steps 1–9 (not counting welcome/success)
+  const formData = {
+    nome: '',
+    whatsapp: '',
+    email: '',
+    segmento: '',
+    faturamento: '',
+    tempo_negocio: '',
+    maior_dificuldade: '',
+    como_conheceu: '',
+    motivacao: ''
+  };
+
+  // ─── Config (replace with real URLs) ───
+  const WEBHOOK_URL = 'WEBHOOK_URL_AQUI';
+  const SHEETS_URL = 'SHEETS_SCRIPT_URL_AQUI';
+
+  // ─── Progress ───
+  function updateProgress(step) {
+    const pct = step === 0 ? 0 : step === 10 ? 100 : Math.round((step / TOTAL_STEPS) * 100);
+    document.getElementById('progress-bar').style.width = pct + '%';
+  }
+
+  // ─── Back Button ───
+  function updateBackBtn(step) {
+    const btn = document.getElementById('btn-back');
+    if (step === 0 || step === 10) {
+      btn.classList.add('hidden');
+    } else {
+      btn.classList.remove('hidden');
+    }
+  }
+
+  // ─── Step Navigation ───
+  function goToStep(next) {
+    const current = document.getElementById('step-' + currentStep);
+    const nextEl = document.getElementById('step-' + next);
+
+    current.classList.remove('active');
+    current.classList.add('exit');
+
+    setTimeout(() => {
+      current.classList.remove('exit');
+      nextEl.classList.add('active');
+
+      // Focus input if present
+      const inp = nextEl.querySelector('.form-input');
+      if (inp) setTimeout(() => inp.focus(), 50);
+
+      // Focus first choice card if choice step
+      const firstCard = nextEl.querySelector('.choice-card');
+      if (firstCard && !inp) setTimeout(() => firstCard.focus(), 50);
+
+      currentStep = next;
+      updateProgress(next);
+      updateBackBtn(next);
+    }, 300);
+  }
+
+  function goBack() {
+    if (currentStep <= 1) {
+      goToStep(0);
+    } else {
+      goToStep(currentStep - 1);
+    }
+  }
+
+  // ─── Validation ───
+  function validateStep(step) {
+    if (step === 1) {
+      const val = document.getElementById('input-nome').value.trim();
+      if (!val || val.length < 3) {
+        showError('nome');
+        return false;
+      }
+      formData.nome = val;
+      return true;
+    }
+    if (step === 2) {
+      const raw = document.getElementById('input-whatsapp').value;
+      const digits = raw.replace(/\D/g, '');
+      if (digits.length < 10) {
+        showError('whatsapp');
+        return false;
+      }
+      formData.whatsapp = raw;
+      return true;
+    }
+    if (step === 3) {
+      const val = document.getElementById('input-email').value.trim();
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!re.test(val)) {
+        showError('email');
+        return false;
+      }
+      formData.email = val;
+      return true;
+    }
+    if (step === 4) {
+      const val = document.getElementById('input-segmento').value.trim();
+      if (!val || val.length < 2) {
+        showError('segmento');
+        return false;
+      }
+      formData.segmento = val;
+      return true;
+    }
+    if (step === 9) {
+      const val = document.getElementById('input-motivacao').value.trim();
+      if (!val || val.length < 10) {
+        showError('motivacao');
+        return false;
+      }
+      formData.motivacao = val;
+      return true;
+    }
+    return true;
+  }
+
+  function showError(field) {
+    const input = document.getElementById('input-' + field) || document.querySelector('[data-field="' + field + '"]');
+    const err = document.getElementById('error-' + field);
+    if (input) {
+      input.classList.add('error');
+      input.addEventListener('input', () => {
+        input.classList.remove('error');
+        if (err) err.classList.remove('visible');
+      }, { once: true });
+    }
+    if (err) err.classList.add('visible');
+  }
+
+  // ─── Advance from text/email/tel steps ───
+  function advanceStep(step) {
+    if (!validateStep(step)) return;
+    goToStep(step + 1);
+  }
+
+  // ─── Multiple Choice ───
+  function selectChoice(card, step) {
+    // Deselect siblings
+    const container = card.closest('.choices');
+    container.querySelectorAll('.choice-card').forEach(c => c.classList.remove('selected'));
+    card.classList.add('selected');
+
+    // Save value
+    const field = container.getAttribute('data-field');
+    formData[field] = card.getAttribute('data-value');
+
+    // Auto-advance after brief delay
+    setTimeout(() => {
+      goToStep(step + 1);
+    }, 350);
+  }
+
+  // ─── Submit ───
+  function submitForm() {
+    if (!validateStep(9)) return;
+
+    const payload = {
+      ...formData,
+      timestamp: new Date().toISOString(),
+      source: window.location.href
+    };
+
+    // 1. Webhook
+    if (WEBHOOK_URL !== 'WEBHOOK_URL_AQUI') {
+      fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      }).catch(() => {});
+    }
+
+    // 2. Google Sheets
+    if (SHEETS_URL !== 'SHEETS_SCRIPT_URL_AQUI') {
+      fetch(SHEETS_URL, {
+        method: 'POST',
+        body: JSON.stringify(payload)
+      }).catch(() => {});
+    }
+
+    // 3. localStorage backup
+    try {
+      localStorage.setItem('mentory_aplicacao_' + Date.now(), JSON.stringify(payload));
+    } catch (e) {}
+
+    // Go to success
+    goToStep(10);
+  }
+
+  // ─── Keyboard Navigation ───
+  document.addEventListener('keydown', (e) => {
+    const step = currentStep;
+
+    // Enter on text/email/tel steps
+    if (e.key === 'Enter' && !e.ctrlKey) {
+      if ([1, 2, 3, 4].includes(step)) {
+        e.preventDefault();
+        advanceStep(step);
+        return;
+      }
+      // Welcome: Enter starts
+      if (step === 0) {
+        e.preventDefault();
+        goToStep(1);
+        return;
+      }
+    }
+
+    // Ctrl+Enter on textarea (step 9)
+    if (e.key === 'Enter' && e.ctrlKey && step === 9) {
+      e.preventDefault();
+      submitForm();
+      return;
+    }
+
+    // Backspace on empty input = go back
+    if (e.key === 'Backspace' && [1, 2, 3, 4].includes(step)) {
+      const input = document.getElementById('input-' + ['', 'nome', 'whatsapp', 'email', 'segmento'][step]);
+      if (input && input.value === '') {
+        e.preventDefault();
+        goBack();
+      }
+      return;
+    }
+
+    // Arrow keys for choice cards
+    if (['ArrowDown', 'ArrowUp', 'ArrowRight', 'ArrowLeft'].includes(e.key)) {
+      if ([5, 6, 7, 8].includes(step)) {
+        const cards = Array.from(document.querySelectorAll('#step-' + step + ' .choice-card'));
+        const focused = document.activeElement;
+        const idx = cards.indexOf(focused);
+        if (idx !== -1) {
+          e.preventDefault();
+          const dir = (e.key === 'ArrowDown' || e.key === 'ArrowRight') ? 1 : -1;
+          const next = (idx + dir + cards.length) % cards.length;
+          cards[next].focus();
+          cards.forEach(c => c.classList.remove('focused'));
+          cards[next].classList.add('focused');
+        }
+      }
+    }
+
+    // Enter on focused choice card
+    if (e.key === 'Enter' && [5, 6, 7, 8].includes(step)) {
+      const focused = document.activeElement;
+      if (focused && focused.classList.contains('choice-card')) {
+        e.preventDefault();
+        focused.click();
+      }
+    }
+  });
+
+  // ─── WhatsApp mask (lightweight) ───
+  document.getElementById('input-whatsapp').addEventListener('input', function(e) {
+    let v = e.target.value.replace(/\D/g, '');
+    if (v.length > 11) v = v.slice(0, 11);
+    if (v.length > 7) {
+      v = '(' + v.slice(0, 2) + ') ' + v.slice(2, 7) + '-' + v.slice(7);
+    } else if (v.length > 2) {
+      v = '(' + v.slice(0, 2) + ') ' + v.slice(2);
+    } else if (v.length > 0) {
+      v = '(' + v;
+    }
+    e.target.value = v;
+  });
+
+  // ─── Init ───
+  updateProgress(0);
+  updateBackBtn(0);
+</script>
+
+</body>
+</html>
