@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vaga Confirmada — Reunião Secreta | Mentory International</title>
+  <meta name="description" content="Sua inscrição foi confirmada! Você receberá todos os detalhes por e-mail e WhatsApp." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: #000000;
+      color: #FFFFFF;
+      font-family: 'Inter', sans-serif;
+      font-size: 17px;
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .container--narrow {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .divider {
+      border: none;
+      border-top: 1px solid rgba(184, 146, 42, 0.3);
+    }
+
+    /* ── BUTTON ── */
+    .btn-gold {
+      display: inline-block;
+      background: linear-gradient(135deg, #B8922A, #D4A93A);
+      color: #000;
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      padding: 18px 40px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+      text-align: center;
+      border: none;
+    }
+    .btn-gold:hover {
+      opacity: 0.92;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(184, 146, 42, 0.35);
+    }
+    .btn-outline {
+      display: inline-block;
+      background: transparent;
+      color: #B8922A;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      padding: 14px 32px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: center;
+      border: 1px solid rgba(184,146,42,0.5);
+    }
+    .btn-outline:hover {
+      background: rgba(184,146,42,0.08);
+      border-color: #B8922A;
+    }
+
+    section { padding: 100px 0; }
+
+    /* ══════════════════════════════════
+       HERO — CONFIRMAÇÃO
+    ══════════════════════════════════ */
+    .hero {
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      padding: 120px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 30%, rgba(184,146,42,0.08) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+    }
+    .checkmark-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 36px;
+    }
+    .checkmark-circle {
+      width: 96px;
+      height: 96px;
+    }
+    .hero-pre {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #B8922A;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(40px, 6vw, 68px);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: #FFFFFF;
+      margin-bottom: 20px;
+    }
+    .hero-sub {
+      font-size: 19px;
+      color: #BBBBBB;
+      max-width: 560px;
+      margin: 0 auto 48px;
+      line-height: 1.6;
+    }
+
+    /* ── INFO BOX ── */
+    .info-box {
+      max-width: 560px;
+      margin: 0 auto;
+      background: #0D0D0D;
+      border: 1px solid rgba(184,146,42,0.25);
+      border-radius: 8px;
+      padding: 36px 40px;
+      text-align: left;
+    }
+    .info-box-title {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #B8922A;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      gap: 16px;
+    }
+    .info-row:last-child { border-bottom: none; }
+    .info-key {
+      font-size: 12px;
+      color: #888888;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      flex-shrink: 0;
+    }
+    .info-val {
+      font-size: 14px;
+      color: #FFFFFF;
+      font-weight: 500;
+      text-align: right;
+    }
+    .info-val.gold { color: #B8922A; font-weight: 700; }
+
+    /* ══════════════════════════════════
+       O QUE FAZER AGORA
+    ══════════════════════════════════ */
+    .next-steps {
+      background: #030303;
+      text-align: center;
+    }
+    .section-label {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #B8922A;
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 3.5vw, 42px);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      color: #FFFFFF;
+      margin-bottom: 56px;
+    }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 56px;
+    }
+    .step-card {
+      background: #111111;
+      border: 1px solid rgba(184,146,42,0.15);
+      border-radius: 8px;
+      padding: 36px 28px;
+      text-align: left;
+    }
+    .step-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 48px;
+      font-weight: 900;
+      color: rgba(184,146,42,0.25);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+    .step-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 10px;
+    }
+    .step-desc {
+      font-size: 14px;
+      color: #AAAAAA;
+      line-height: 1.65;
+    }
+
+    /* ── WHATSAPP CTA ── */
+    .whatsapp-block {
+      background: #0D0D0D;
+      border: 1px solid rgba(184,146,42,0.2);
+      border-radius: 8px;
+      padding: 40px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      text-align: left;
+    }
+    .whatsapp-icon {
+      flex-shrink: 0;
+    }
+    .whatsapp-text h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 8px;
+    }
+    .whatsapp-text p {
+      font-size: 15px;
+      color: #AAAAAA;
+      line-height: 1.6;
+    }
+    .btn-whatsapp {
+      flex-shrink: 0;
+      display: inline-block;
+      background: #25D366;
+      color: #000000;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 14px 28px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      white-space: nowrap;
+    }
+    .btn-whatsapp:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    /* ══════════════════════════════════
+       DEPOIMENTOS
+    ══════════════════════════════════ */
+    .testimonials {
+      background: #000000;
+    }
+    .testimonials-intro { text-align: center; margin-bottom: 56px; }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .testimonial-mini {
+      background: #0D0D0D;
+      border: 1px solid rgba(184,146,42,0.15);
+      border-radius: 8px;
+      padding: 28px 24px;
+    }
+    .testimonial-mini-text {
+      font-size: 14px;
+      line-height: 1.7;
+      color: #CCCCCC;
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+    .testimonial-mini-author {
+      font-size: 13px;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+    .testimonial-mini-role {
+      font-size: 12px;
+      color: #888888;
+      margin-top: 2px;
+    }
+
+    /* ══════════════════════════════════
+       COMPARTILHAR
+    ══════════════════════════════════ */
+    .share {
+      background: #030303;
+      text-align: center;
+      padding: 80px 0;
+    }
+    .share h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(24px, 3vw, 36px);
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 16px;
+    }
+    .share p {
+      font-size: 16px;
+      color: #AAAAAA;
+      margin-bottom: 36px;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .share-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-share {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 28px;
+      border-radius: 4px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
+      text-decoration: none;
+    }
+    .btn-share--wa {
+      background: rgba(37,211,102,0.1);
+      color: #25D366;
+      border-color: rgba(37,211,102,0.3);
+    }
+    .btn-share--wa:hover { background: rgba(37,211,102,0.18); }
+    .btn-share--copy {
+      background: rgba(184,146,42,0.1);
+      color: #B8922A;
+      border-color: rgba(184,146,42,0.3);
+    }
+    .btn-share--copy:hover { background: rgba(184,146,42,0.18); }
+
+    .footer-note {
+      padding: 40px 24px;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      font-size: 12px;
+      color: #555555;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .steps-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .whatsapp-block { flex-direction: column; text-align: center; }
+    }
+    @media (max-width: 600px) {
+      section { padding: 64px 0; }
+      .hero { padding: 100px 0 64px; }
+      .info-box { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════
+     HERO — CONFIRMAÇÃO
+══════════════════════════════════ -->
+<section class="hero">
+  <div class="container hero-content">
+    <div class="checkmark-wrap">
+      <svg class="checkmark-circle" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="48" cy="48" r="46" fill="rgba(184,146,42,0.1)" stroke="#B8922A" stroke-width="2"/>
+        <circle cx="48" cy="48" r="38" fill="rgba(184,146,42,0.08)"/>
+        <path d="M30 48L43 61L66 36" stroke="#B8922A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div class="hero-pre">Inscrição Confirmada</div>
+    <h1>Sua vaga está garantida!</h1>
+    <p class="hero-sub">
+      Você receberá todos os detalhes por e-mail e WhatsApp. Fique atento à sua caixa de entrada.
+    </p>
+    <div class="info-box">
+      <div class="info-box-title">Detalhes da sua inscrição</div>
+      <div class="info-row">
+        <span class="info-key">Evento</span>
+        <span class="info-val">Reunião Secreta</span>
+      </div>
+      <div class="info-row">
+        <span class="info-key">Data &amp; Horário</span>
+        <span class="info-val">[DATA E HORÁRIO A CONFIRMAR]</span>
+      </div>
+      <div class="info-row">
+        <span class="info-key">Plataforma</span>
+        <span class="info-val">Zoom — Link enviado por e-mail</span>
+      </div>
+      <div class="info-row">
+        <span class="info-key">Investimento</span>
+        <span class="info-val gold">100% Gratuito</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- ══════════════════════════════════
+     O QUE FAZER AGORA
+══════════════════════════════════ -->
+<section class="next-steps">
+  <div class="container">
+    <div class="section-label">Próximos Passos</div>
+    <h2 class="section-title">O que fazer agora</h2>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <div class="step-title">Aguarde o e-mail de confirmação</div>
+        <div class="step-desc">
+          Você receberá um e-mail com o link do Zoom e todos os detalhes do evento. Verifique também sua caixa de spam, caso não encontre na caixa principal.
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <div class="step-title">Anote na sua agenda</div>
+        <div class="step-desc">
+          Reserve o horário do evento em sua agenda — pessoal e profissional. Bloqueie esse tempo com antecedência. Presença ao vivo é essencial: não haverá replay.
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <div class="step-title">Traga suas dúvidas</div>
+        <div class="step-desc">
+          Reflita sobre os principais gargalos do seu negócio hoje. Quanto mais preparado você chegar, mais valor vai extrair dos 90 minutos de conteúdo denso que estão por vir.
+        </div>
+      </div>
+    </div>
+    <div class="whatsapp-block">
+      <div class="whatsapp-icon">
+        <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
+          <circle cx="28" cy="28" r="28" fill="rgba(37,211,102,0.1)"/>
+          <path d="M28 14C20.268 14 14 20.268 14 28C14 30.6 14.7 33.044 15.956 35.136L14 42L21.056 40.08C23.092 41.268 25.464 42 28 42C35.732 42 42 35.732 42 28C42 20.268 35.732 14 28 14Z" stroke="#25D366" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M23 25C23 25 23.5 26.5 25 28C26.5 29.5 28 30 28 30L31 27L33 29C33 29 30 33 26 31C22 29 22 24 22 24L24 22C24 22 25 24 23 25Z" stroke="#25D366" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="whatsapp-text">
+        <h3>Entre na comunidade exclusiva</h3>
+        <p>Junte-se ao grupo no WhatsApp e receba atualizações, lembretes e conteúdo exclusivo antes da Reunião Secreta. Apenas inscritos confirmados têm acesso.</p>
+      </div>
+      <a href="#" class="btn-whatsapp">Entrar no Grupo</a>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- ══════════════════════════════════
+     DEPOIMENTOS
+══════════════════════════════════ -->
+<section class="testimonials">
+  <div class="container">
+    <div class="testimonials-intro">
+      <div class="section-label">Resultados</div>
+      <h2 class="section-title">Enquanto isso, veja o que dizem nossos alunos</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-mini">
+        <div class="testimonial-mini-text">
+          "A metodologia me fez enxergar que eu estava trabalhando contra mim mesmo. Hoje tenho menos clientes, cobro mais e durmo melhor."
+        </div>
+        <div class="testimonial-mini-author">Ricardo Almeida</div>
+        <div class="testimonial-mini-role">Consultor de Gestão, SP</div>
+      </div>
+      <div class="testimonial-mini">
+        <div class="testimonial-mini-text">
+          "Em 45 dias implementando o framework boutique, meu ticket médio subiu 140%. Transformação real, sem atalhos."
+        </div>
+        <div class="testimonial-mini-author">Dra. Fernanda Rocha</div>
+        <div class="testimonial-mini-role">Médica Esteta, RJ</div>
+      </div>
+      <div class="testimonial-mini">
+        <div class="testimonial-mini-text">
+          "O funil automatizado me liberou das prospecções manuais. Meu negócio agora gera oportunidades enquanto eu foco no que importa."
+        </div>
+        <div class="testimonial-mini-author">Marcelo Figueiredo</div>
+        <div class="testimonial-mini-role">Advogado, MG</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- ══════════════════════════════════
+     COMPARTILHAR
+══════════════════════════════════ -->
+<section class="share">
+  <div class="container--narrow">
+    <div class="section-label">Compartilhe</div>
+    <h2>Compartilhe com um empresário que precisa disso</h2>
+    <p>
+      Conhece alguém que está preso no operacional, trabalhando muito e lucrando pouco? Indique a Reunião Secreta — você pode mudar a trajetória do negócio de alguém que você respeita.
+    </p>
+    <div class="share-buttons">
+      <a href="https://wa.me/?text=Vi%20essa%20Reunião%20Secreta%20gratuita%20sobre%20como%20construir%20um%20negócio%20boutique%20automatizado%20com%20IA.%20Acho%20que%20vai%20ser%20útil%20pra%20você." class="btn-share btn-share--wa" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+          <path d="M9 1.5C4.858 1.5 1.5 4.858 1.5 9C1.5 10.386 1.876 11.688 2.526 12.81L1.5 16.5L5.31 15.498C6.408 16.118 7.665 16.5 9 16.5C13.142 16.5 16.5 13.142 16.5 9C16.5 4.858 13.142 1.5 9 1.5Z" stroke="#25D366" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Enviar pelo WhatsApp
+      </a>
+      <button class="btn-share btn-share--copy" onclick="copyLink()">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+          <rect x="6" y="6" width="9" height="9" rx="1.5" stroke="#B8922A" stroke-width="1.2"/>
+          <path d="M12 6V4.5C12 3.672 11.328 3 10.5 3H4.5C3.672 3 3 3.672 3 4.5V10.5C3 11.328 3.672 12 4.5 12H6" stroke="#B8922A" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+        <span id="copy-label">Copiar link</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<div class="footer-note">
+  <p>Mentory International® — Todos os direitos reservados.</p>
+  <p style="margin-top:6px;">Dúvidas? Entre em contato pelo grupo do WhatsApp após confirmar sua presença.</p>
+</div>
+
+<script>
+  function copyLink() {
+    var url = window.location.href;
+    navigator.clipboard.writeText(url).then(function() {
+      var label = document.getElementById('copy-label');
+      label.textContent = 'Link copiado!';
+      setTimeout(function() { label.textContent = 'Copiar link'; }, 2000);
+    });
+  }
+</script>
+</body>
+</html>

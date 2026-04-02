@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reunião Secreta — Como Construir um Negócio Boutique Automatizado com IA</title>
+  <meta name="description" content="Descubra como construir um negócio boutique que fatura alto, cobra caro e opera 100% automatizado com IA. Evento gratuito ao vivo." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: #000000;
+      color: #FFFFFF;
+      font-family: 'Inter', sans-serif;
+      font-size: 17px;
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    button { font-family: inherit; cursor: pointer; border: none; }
+
+    /* ── LAYOUT ── */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .container--narrow {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid rgba(184, 146, 42, 0.3);
+      margin: 0;
+    }
+
+    /* ── BUTTON ── */
+    .btn-gold {
+      display: inline-block;
+      background: linear-gradient(135deg, #B8922A, #D4A93A);
+      color: #000;
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      padding: 18px 40px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+      text-align: center;
+      border: none;
+      width: 100%;
+    }
+    .btn-gold:hover {
+      opacity: 0.92;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(184, 146, 42, 0.35);
+    }
+
+    /* ── SECTION BASE ── */
+    section { padding: 100px 0; }
+
+    /* ══════════════════════════════════
+       HERO (DOBRA 1)
+    ══════════════════════════════════ */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(ellipse at 60% 40%, rgba(184,146,42,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 64px;
+      align-items: center;
+    }
+    .hero-pre {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #B8922A;
+      border: 1px solid rgba(184,146,42,0.3);
+      padding: 6px 16px;
+      border-radius: 2px;
+      margin-bottom: 28px;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(40px, 5vw, 64px);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: #FFFFFF;
+      margin-bottom: 20px;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: #B8922A;
+    }
+    .hero-sub {
+      font-size: 17px;
+      line-height: 1.7;
+      color: #CCCCCC;
+      margin-bottom: 32px;
+      max-width: 580px;
+    }
+    .hero-details {
+      margin-top: 20px;
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .hero-detail-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: #999999;
+    }
+    .hero-detail-item svg {
+      flex-shrink: 0;
+    }
+
+    /* ── FORM CARD ── */
+    .form-card {
+      background: #0D0D0D;
+      border: 1px solid rgba(184,146,42,0.2);
+      border-radius: 8px;
+      padding: 40px 36px;
+    }
+    .form-card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 6px;
+      text-align: center;
+    }
+    .form-card-badge {
+      text-align: center;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #B8922A;
+      margin-bottom: 28px;
+    }
+    .form-group {
+      margin-bottom: 16px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #999999;
+      margin-bottom: 8px;
+    }
+    .form-group input {
+      width: 100%;
+      background: #111111;
+      border: 1px solid #333333;
+      color: #FFFFFF;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      padding: 14px 16px;
+      border-radius: 4px;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+    .form-group input:focus {
+      border-color: rgba(184,146,42,0.6);
+    }
+    .form-group input::placeholder {
+      color: #555555;
+    }
+    .form-microcopy {
+      text-align: center;
+      font-size: 12px;
+      color: #666666;
+      margin-top: 12px;
+      line-height: 1.5;
+    }
+    .event-badge {
+      background: rgba(184,146,42,0.08);
+      border: 1px solid rgba(184,146,42,0.2);
+      border-radius: 4px;
+      padding: 16px;
+      margin-top: 20px;
+    }
+    .event-badge-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      padding: 4px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .event-badge-row:last-child { border-bottom: none; }
+    .event-badge-label { color: #999999; }
+    .event-badge-value { color: #FFFFFF; font-weight: 500; }
+    .event-badge-value.gold { color: #B8922A; font-weight: 700; }
+
+    /* ══════════════════════════════════
+       DOBRA 2 — NARRATIVA
+    ══════════════════════════════════ */
+    .narrative {
+      background: #030303;
+    }
+    .narrative-content {
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .section-label {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #B8922A;
+      margin-bottom: 24px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      color: #FFFFFF;
+      margin-bottom: 32px;
+    }
+    .narrative-text {
+      font-size: 17px;
+      line-height: 1.8;
+      color: #CCCCCC;
+      text-align: left;
+    }
+    .narrative-text p { margin-bottom: 20px; }
+    .narrative-text p:last-child { margin-bottom: 0; }
+    .narrative-text strong { color: #FFFFFF; }
+    .narrative-pull {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-style: italic;
+      color: #B8922A;
+      text-align: center;
+      margin: 48px 0;
+      padding: 32px 40px;
+      border-left: 3px solid #B8922A;
+      background: rgba(184,146,42,0.04);
+      border-radius: 0 4px 4px 0;
+    }
+
+    /* ══════════════════════════════════
+       DOBRA 3 — IDENTIFICAÇÃO
+    ══════════════════════════════════ */
+    .identification {
+      background: #000000;
+    }
+    .id-intro {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .id-table {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      border: 1px solid rgba(184,146,42,0.2);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .id-col {
+      padding: 40px 36px;
+    }
+    .id-col--left {
+      background: #0A0A0A;
+    }
+    .id-col--right {
+      background: #0D0D0D;
+      border-left: 1px solid rgba(184,146,42,0.15);
+    }
+    .id-col-header {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .id-col--left .id-col-header { color: #888888; }
+    .id-col--right .id-col-header { color: #B8922A; }
+    .id-item {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 20px;
+      align-items: flex-start;
+    }
+    .id-item:last-child { margin-bottom: 0; }
+    .id-icon {
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+    .id-item-text {
+      font-size: 15px;
+      line-height: 1.6;
+    }
+    .id-col--left .id-item-text { color: #888888; }
+    .id-col--right .id-item-text { color: #CCCCCC; }
+
+    /* ══════════════════════════════════
+       DOBRA 4 — O QUE VAI APRENDER
+    ══════════════════════════════════ */
+    .learnings {
+      background: #030303;
+    }
+    .learnings-intro {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .learnings-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .learning-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      background: #111111;
+      border: 1px solid rgba(184,146,42,0.12);
+      border-radius: 6px;
+      padding: 24px;
+      transition: border-color 0.2s ease;
+    }
+    .learning-item:hover {
+      border-color: rgba(184,146,42,0.3);
+    }
+    .learning-icon { flex-shrink: 0; margin-top: 2px; }
+    .learning-text {
+      font-size: 15px;
+      line-height: 1.65;
+      color: #CCCCCC;
+    }
+    .learning-text strong { color: #FFFFFF; display: block; margin-bottom: 4px; font-size: 15px; }
+
+    /* ══════════════════════════════════
+       DOBRA 5 — QUEM DEVE ASSISTIR
+    ══════════════════════════════════ */
+    .audience {
+      background: #000000;
+    }
+    .audience-intro {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .audience-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .audience-card {
+      border-radius: 8px;
+      padding: 40px 36px;
+    }
+    .audience-card--yes {
+      background: #0D0D0D;
+      border: 1px solid rgba(184,146,42,0.3);
+    }
+    .audience-card--no {
+      background: #080808;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .audience-card-header {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .audience-card--yes .audience-card-header { color: #B8922A; }
+    .audience-card--no .audience-card-header { color: #666666; }
+    .audience-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      margin-bottom: 18px;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+    .audience-item:last-child { margin-bottom: 0; }
+    .audience-card--yes .audience-item { color: #CCCCCC; }
+    .audience-card--no .audience-item { color: #777777; }
+    .audience-item svg { flex-shrink: 0; margin-top: 3px; }
+
+    /* ══════════════════════════════════
+       DOBRA 6 — PROVA SOCIAL
+    ══════════════════════════════════ */
+    .social-proof {
+      background: #030303;
+    }
+    .social-proof-intro {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .testimonial-card {
+      background: #0D0D0D;
+      border: 1px solid rgba(184,146,42,0.2);
+      border-radius: 8px;
+      padding: 36px 28px;
+      position: relative;
+    }
+    .testimonial-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: 48px;
+      color: rgba(184,146,42,0.2);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+    .testimonial-text {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #CCCCCC;
+      font-style: italic;
+      margin-bottom: 24px;
+    }
+    .testimonial-author {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 20px;
+    }
+    .testimonial-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+    .testimonial-role {
+      font-size: 13px;
+      color: #999999;
+      margin-top: 2px;
+    }
+    .testimonial-stars {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 16px;
+    }
+
+    /* ══════════════════════════════════
+       DOBRA 7 — CTA SECUNDÁRIO
+    ══════════════════════════════════ */
+    .cta-secondary {
+      background: #000000;
+    }
+    .cta-secondary-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .event-detail-box {
+      background: #0D0D0D;
+      border: 1px solid rgba(184,146,42,0.25);
+      border-radius: 8px;
+      padding: 40px;
+      margin: 40px 0;
+    }
+    .event-detail-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 6px;
+    }
+    .event-detail-subtitle {
+      font-size: 14px;
+      color: #999999;
+      margin-bottom: 28px;
+    }
+    .event-detail-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .event-detail-row:last-child { border-bottom: none; }
+    .event-detail-key { font-size: 13px; color: #888888; text-transform: uppercase; letter-spacing: 0.08em; }
+    .event-detail-val { font-size: 14px; color: #FFFFFF; font-weight: 500; }
+    .event-detail-val.highlight { color: #B8922A; font-weight: 700; }
+
+    /* ══════════════════════════════════
+       DOBRA 8 — FAQ
+    ══════════════════════════════════ */
+    .faq {
+      background: #030303;
+    }
+    .faq-intro {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .faq-list {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .faq-item:first-child {
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 0;
+      text-align: left;
+      cursor: pointer;
+      gap: 20px;
+    }
+    .faq-question-text {
+      font-size: 16px;
+      font-weight: 600;
+      color: #FFFFFF;
+      line-height: 1.5;
+    }
+    .faq-arrow {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      background: rgba(184,146,42,0.1);
+      border: 1px solid rgba(184,146,42,0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease, background 0.2s ease;
+    }
+    .faq-item.open .faq-arrow {
+      transform: rotate(180deg);
+      background: rgba(184,146,42,0.2);
+    }
+    .faq-answer {
+      display: none;
+      padding: 0 0 24px 0;
+      font-size: 15px;
+      line-height: 1.75;
+      color: #AAAAAA;
+    }
+    .faq-item.open .faq-answer { display: block; }
+
+    /* ══════════════════════════════════
+       RODAPÉ — CTA FINAL
+    ══════════════════════════════════ */
+    .footer-cta {
+      background: #000000;
+      padding: 120px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .footer-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 50%, rgba(184,146,42,0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .footer-cta-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .footer-cta h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 4.5vw, 52px);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: #FFFFFF;
+      margin-bottom: 24px;
+    }
+    .footer-cta p {
+      font-size: 17px;
+      line-height: 1.7;
+      color: #AAAAAA;
+      margin-bottom: 16px;
+    }
+    .footer-cta-highlight {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-style: italic;
+      color: #B8922A;
+      margin-bottom: 48px;
+    }
+    .footer-legal {
+      margin-top: 40px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      font-size: 12px;
+      color: #555555;
+      line-height: 1.6;
+    }
+
+    /* ══════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════ */
+    @media (max-width: 900px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+      .id-table {
+        grid-template-columns: 1fr;
+      }
+      .id-col--right {
+        border-left: none;
+        border-top: 1px solid rgba(184,146,42,0.15);
+      }
+      .learnings-grid {
+        grid-template-columns: 1fr;
+      }
+      .audience-cols {
+        grid-template-columns: 1fr;
+      }
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 600px) {
+      section { padding: 64px 0; }
+      .hero { padding: 100px 0 64px; }
+      .form-card { padding: 28px 20px; }
+      .id-col { padding: 28px 20px; }
+      .audience-card { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════
+     HERO — DOBRA 1
+══════════════════════════════════ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="hero-pre">Para empresários que já faturam 500K/ano, mas ainda estão travados na escala</div>
+        <h1>Como Construir um Negócio Boutique que Fatura Alto, Cobra Caro e é <em>100% Automatizado com IA</em></h1>
+        <p class="hero-sub">
+          Existe um jeito de ter uma empresa mais lucrativa e autônoma na nova era da IA — e você provavelmente não está olhando para isso ainda.
+        </p>
+        <div class="hero-details">
+          <div class="hero-detail-item">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <circle cx="8" cy="8" r="7" stroke="#B8922A" stroke-width="1.5"/>
+              <path d="M8 4.5V8.5L10.5 10" stroke="#B8922A" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            <span>[DATA E HORÁRIO A CONFIRMAR]</span>
+          </div>
+          <div class="hero-detail-item">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <rect x="1" y="3" width="14" height="10" rx="2" stroke="#B8922A" stroke-width="1.5"/>
+              <path d="M1 6h14" stroke="#B8922A" stroke-width="1.5"/>
+            </svg>
+            <span>Ao Vivo pelo Zoom</span>
+          </div>
+          <div class="hero-detail-item">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M8 1L10.06 5.18L14.5 5.82L11.25 8.99L12.12 13.41L8 11.27L3.88 13.41L4.75 8.99L1.5 5.82L5.94 5.18L8 1Z" stroke="#B8922A" stroke-width="1.5" stroke-linejoin="round"/>
+            </svg>
+            <span>100% Gratuito</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-card">
+        <div class="form-card-title">Garanta Sua Vaga</div>
+        <div class="form-card-badge">Inscrição Gratuita — Vagas Limitadas</div>
+        <form onsubmit="return false;">
+          <div class="form-group">
+            <label for="nome">Nome Completo</label>
+            <input type="text" id="nome" name="nome" placeholder="Seu nome completo" autocomplete="name" />
+          </div>
+          <div class="form-group">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" placeholder="seu@email.com" autocomplete="email" />
+          </div>
+          <div class="form-group">
+            <label for="whatsapp">WhatsApp</label>
+            <input type="tel" id="whatsapp" name="whatsapp" placeholder="(11) 99999-9999" autocomplete="tel" />
+          </div>
+          <button type="submit" class="btn-gold">Garantir Minha Vaga — Acesso Gratuito</button>
+        </form>
+        <div class="form-microcopy">
+          Inscrição 100% gratuita. Vagas limitadas.<br />Basta estar comprometido em comparecer à reunião.
+        </div>
+        <div class="event-badge">
+          <div class="event-badge-row">
+            <span class="event-badge-label">Data &amp; Horário</span>
+            <span class="event-badge-value">[DATA E HORÁRIO A CONFIRMAR]</span>
+          </div>
+          <div class="event-badge-row">
+            <span class="event-badge-label">Plataforma</span>
+            <span class="event-badge-value">Zoom (link por e-mail)</span>
+          </div>
+          <div class="event-badge-row">
+            <span class="event-badge-label">Investimento</span>
+            <span class="event-badge-value gold">100% Gratuito</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- ══════════════════════════════════
+     DOBRA 2 — NARRATIVA CENTRAL
+══════════════════════════════════ -->
+<section class="narrative">
+  <div class="container--narrow">
+    <div class="narrative-content">
+      <div class="section-label">A Ilusão Perigosa</div>
+      <h2 class="section-title">Crescer não significa trabalhar mais.<br />Significa trabalhar diferente.</h2>
+    </div>
+    <div class="narrative-text">
+      <p><strong>Existe uma ilusão perigosa no mundo dos negócios.</strong></p>
+      <p>A ilusão de que crescer significa trabalhar mais. De que mais clientes significa mais lucro. De que um negócio maior é necessariamente um negócio melhor.</p>
+      <p>Empresários que faturam entre R$500 mil e R$10 milhões são as maiores vítimas dessa ilusão.</p>
+      <p>Eles têm um negócio que funciona. Têm prova de mercado. Têm clientes. Mas também têm uma agenda que não para, uma equipe que depende deles para cada decisão, e uma sensação crescente de que, por mais que trabalhem, o lucro real não cresce na mesma proporção.</p>
+
+      <div class="narrative-pull">
+        "O problema não é o esforço. O problema é o modelo."
+      </div>
+
+      <p>Modelos antigos de negócio foram construídos para uma era de escassez de informação, onde o dono precisava estar presente em tudo porque não existia outra forma de operar. Hoje, esse modelo não é só ineficiente — ele é uma armadilha.</p>
+      <p>A Inteligência Artificial mudou as regras do jogo. E quem entendeu isso primeiro está construindo algo que a maioria nem imagina ser possível: negócios boutique que faturam alto com poucos clientes, posicionamento irresistível, margens de 60, 70 ou 80% — e que rodam com automação enquanto o dono tem liberdade real.</p>
+      <p><strong>Liberdade não é faturar menos. É faturar melhor.</strong></p>
+      <p>Nesta reunião secreta ao vivo, vamos mostrar exatamente como empresários com o seu perfil estão fazendo essa transição. Da exaustão para a liberdade. Do volume para a margem. Da presença obrigada para a automação inteligente.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- ══════════════════════════════════
+     DOBRA 3 — IDENTIFICAÇÃO
+══════════════════════════════════ -->
+<section class="identification">
+  <div class="container">
+    <div class="id-intro">
+      <div class="section-label">Você se reconhece aqui?</div>
+      <h2 class="section-title">Isso te soa familiar?</h2>
+    </div>
+    <div class="id-table">
+      <div class="id-col id-col--left">
+        <div class="id-col-header">O que você VIVE hoje</div>
+        <div class="id-item">
+          <div class="id-icon">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <circle cx="9" cy="9" r="8" stroke="#555555" stroke-width="1.5"/>
+              <path d="M6 9l2 2 4-4" stroke="#555555" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="id-item-text">Trabalha mais de 10 horas por dia mas o lucro não cresce na mesma proporção</div>
+        </div>
+        <div class="id-item">
+          <div class="id-icon">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <circle cx="9" cy="9" r="8" stroke="#555555" stroke-width="1.5"/>
+              <path d="M6 9l2 2 4-4" stroke="#555555" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="id-item-text">Atrai clientes que pechincham, atrasam pagamentos ou não valorizam o que você entrega</div>
+        </div>
+        <div class="id-item">
+          <div class="id-icon">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <circle cx="9" cy="9" r="8" stroke="#555555" stroke-width="1.5"/>
+              <path d="M6 9l2 2 4-4" stroke="#555555" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="id-item-text">Sabe que poderia cobrar mais — mas tem medo de perder os clientes que tem</div>
+        </div>
+        <div class="id-item">
+          <div class="id-icon">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <circle cx="9" cy="9" r="8" stroke="#555555" stroke-width="1.5"/>
+              <path d="M6 9l2 2 4-4" stroke="#555555" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="id-item-text">Depende de indicação ou da sua presença constante para fechar novos negócios</div>
+        </div>
+        <div class="id-item">
+          <div class="id-icon">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <circle cx="9" cy="9" r="8" stroke="#555555" stroke-width="1.5"/>
+              <path d="M6 9l2 2 4-4" stroke="#555555" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="id-item-text">Sente que a IA está mudando tudo, mas não sabe como aplicar estrategicamente no seu mercado</div>
+        </div>
+        <div class="id-item">
+          <div class="id-icon">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <circle cx="9" cy="9" r="8" stroke="#555555" stroke-width="1.5"/>
+              <path d="M6 9l2 2 4-4" stroke="#555555" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="id-item-text">Tem um negócio que funciona, mas não tem um sistema que funcione sem você</div>
+        </div>
+      </div>
+      <div class="id-col id-col--right">
+        <div class="id-col-header">O que você QUER ter</div>
+        <div class="id-item">
+          <div class="id-icon">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <circle cx="9" cy="9" r="8" fill="rgba(184,146,42,0.15)" stroke="#B8922A" stroke-width="1.5"/>
+              <path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#B8922A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="id-item-text">Trabalhar com poucos clientes premium que pagam alto e respeitam o seu valor</div>
+        </div>
+        <div class="id-item">
+          <div class="id-icon">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <circle cx="9" cy="9" r="8" fill="rgba(184,146,42,0.15)" stroke="#B8922A" stroke-width="1.5"/>
+              <path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#B8922A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="id-item-text">Um sistema automatizado de marketing e vendas que gera leads enquanto você dorme</div>
+        </div>
+        <div class="id-item">
+          <div class="id-icon">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <circle cx="9" cy="9" r="8" fill="rgba(184,146,42,0.15)" stroke="#B8922A" stroke-width="1.5"/>
+              <path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#B8922A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="id-item-text">Cobrar o dobro ou o triplo do que cobra hoje — sem precisar justificar o preço</div>
+        </div>
+        <div class="id-item">
+          <div class="id-icon">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <circle cx="9" cy="9" r="8" fill="rgba(184,146,42,0.15)" stroke="#B8922A" stroke-width="1.5"/>
+              <path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#B8922A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="id-item-text">Uma marca premium que atrai, filtra e converte sem depender da sua presença constante</div>
+        </div>
+        <div class="id-item">
+          <div class="id-icon">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <circle cx="9" cy="9" r="8" fill="rgba(184,146,42,0.15)" stroke="#B8922A" stroke-width="1.5"/>
+              <path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#B8922A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="id-item-text">Usar a IA como alavanca real de escala — não como ferramenta de curiosidade</div>
+        </div>
+        <div class="id-item">
+          <div class="id-icon">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <circle cx="9" cy="9" r="8" fill="rgba(184,146,42,0.15)" stroke="#B8922A" stroke-width="1.5"/>
+              <path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#B8922A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="id-item-text">Um negócio boutique: enxuto, lucrativo, automatizado e com alta margem</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- ══════════════════════════════════
+     DOBRA 4 — O QUE VAI APRENDER
+══════════════════════════════════ -->
+<section class="learnings">
+  <div class="container">
+    <div class="learnings-intro">
+      <div class="section-label">Conteúdo do Evento</div>
+      <h2 class="section-title">O que você vai descobrir<br />nesta Reunião Secreta</h2>
+    </div>
+    <div class="learnings-grid">
+      <div class="learning-item">
+        <div class="learning-icon">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <circle cx="11" cy="11" r="10" fill="rgba(184,146,42,0.15)" stroke="#B8922A" stroke-width="1.5"/>
+            <path d="M7 11l3 3 5-5" stroke="#B8922A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="learning-text">
+          <strong>O Framework dos 5 Pilares do Negócio Boutique</strong>
+          Como estruturar Marca, Produto, Marketing, Vendas e Operações com IA para criar uma máquina de alto lucro com menos pessoas
+        </div>
+      </div>
+      <div class="learning-item">
+        <div class="learning-icon">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <circle cx="11" cy="11" r="10" fill="rgba(184,146,42,0.15)" stroke="#B8922A" stroke-width="1.5"/>
+            <path d="M7 11l3 3 5-5" stroke="#B8922A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="learning-text">
+          <strong>Por que posicionamentos genéricos atraem clientes genéricos</strong>
+          O método para se reposicionar como referência premium no seu mercado sem perder os clientes que você já tem
+        </div>
+      </div>
+      <div class="learning-item">
+        <div class="learning-icon">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <circle cx="11" cy="11" r="10" fill="rgba(184,146,42,0.15)" stroke="#B8922A" stroke-width="1.5"/>
+            <path d="M7 11l3 3 5-5" stroke="#B8922A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="learning-text">
+          <strong>Como a IA está tornando obsoleto o modelo de volume</strong>
+          O que fazer agora para não ficar para trás na era do negócio boutique automatizado
+        </div>
+      </div>
+      <div class="learning-item">
+        <div class="learning-icon">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <circle cx="11" cy="11" r="10" fill="rgba(184,146,42,0.15)" stroke="#B8922A" stroke-width="1.5"/>
+            <path d="M7 11l3 3 5-5" stroke="#B8922A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="learning-text">
+          <strong>A estrutura de pricing boutique</strong>
+          Como definir o preço certo para cobrar 2x, 3x ou 5x mais — com lógica irrefutável que elimina o pechinchador e atrai o cliente de alto valor
+        </div>
+      </div>
+      <div class="learning-item">
+        <div class="learning-icon">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <circle cx="11" cy="11" r="10" fill="rgba(184,146,42,0.15)" stroke="#B8922A" stroke-width="1.5"/>
+            <path d="M7 11l3 3 5-5" stroke="#B8922A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="learning-text">
+          <strong>O sistema de automação de marketing</strong>
+          Como gerar leads qualificados 24 horas por dia sem depender de postagens diárias, lives ou presença constante nas redes sociais
+        </div>
+      </div>
+      <div class="learning-item">
+        <div class="learning-icon">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <circle cx="11" cy="11" r="10" fill="rgba(184,146,42,0.15)" stroke="#B8922A" stroke-width="1.5"/>
+            <path d="M7 11l3 3 5-5" stroke="#B8922A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="learning-text">
+          <strong>Como construir um funil de vendas que pré-qualifica e converte</strong>
+          Clientes premium sem precisar de um time de vendas grande ou de ligações de fechamento intermináveis
+        </div>
+      </div>
+      <div class="learning-item" style="grid-column: 1 / -1;">
+        <div class="learning-icon">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <circle cx="11" cy="11" r="10" fill="rgba(184,146,42,0.15)" stroke="#B8922A" stroke-width="1.5"/>
+            <path d="M7 11l3 3 5-5" stroke="#B8922A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="learning-text">
+          <strong>O mapa da transição</strong>
+          Como sair do operacional sem colapsar o negócio — o caminho real de quem fez essa mudança e os erros que você pode evitar
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- ══════════════════════════════════
+     DOBRA 5 — QUEM DEVE ASSISTIR
+══════════════════════════════════ -->
+<section class="audience">
+  <div class="container">
+    <div class="audience-intro">
+      <div class="section-label">Qualificação</div>
+      <h2 class="section-title">Este Reunião Secreta foi feito para você se...</h2>
+    </div>
+    <div class="audience-cols">
+      <div class="audience-card audience-card--yes">
+        <div class="audience-card-header">Você está no lugar certo se...</div>
+        <div class="audience-item">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <circle cx="9" cy="9" r="8" fill="rgba(184,146,42,0.15)" stroke="#B8922A" stroke-width="1.5"/>
+            <path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#B8922A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>Você é empresário, consultor, mentor, médico, dona de clínica, esteticista, advogado ou profissional liberal que fatura acima de R$500 mil/ano</span>
+        </div>
+        <div class="audience-item">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <circle cx="9" cy="9" r="8" fill="rgba(184,146,42,0.15)" stroke="#B8922A" stroke-width="1.5"/>
+            <path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#B8922A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>Você sente que trabalha demais para o lucro que tem</span>
+        </div>
+        <div class="audience-item">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <circle cx="9" cy="9" r="8" fill="rgba(184,146,42,0.15)" stroke="#B8922A" stroke-width="1.5"/>
+            <path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#B8922A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>Você sabe que poderia cobrar mais mas ainda não sabe exatamente como justificar esse posicionamento</span>
+        </div>
+        <div class="audience-item">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <circle cx="9" cy="9" r="8" fill="rgba(184,146,42,0.15)" stroke="#B8922A" stroke-width="1.5"/>
+            <path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#B8922A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>Você quer usar a IA como ferramenta estratégica de escala, não só para criar conteúdo</span>
+        </div>
+        <div class="audience-item">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <circle cx="9" cy="9" r="8" fill="rgba(184,146,42,0.15)" stroke="#B8922A" stroke-width="1.5"/>
+            <path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#B8922A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>Você está pronto para mudar o modelo — não apenas otimizar o que já existe</span>
+        </div>
+      </div>
+      <div class="audience-card audience-card--no">
+        <div class="audience-card-header">Este não é para você se...</div>
+        <div class="audience-item">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <circle cx="9" cy="9" r="8" stroke="#444444" stroke-width="1.5"/>
+            <path d="M6 12l6-6M12 12L6 6" stroke="#444444" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <span>Você está começando um negócio do zero sem receita validada</span>
+        </div>
+        <div class="audience-item">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <circle cx="9" cy="9" r="8" stroke="#444444" stroke-width="1.5"/>
+            <path d="M6 12l6-6M12 12L6 6" stroke="#444444" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <span>Você quer uma fórmula mágica que não exige nenhuma mudança</span>
+        </div>
+        <div class="audience-item">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <circle cx="9" cy="9" r="8" stroke="#444444" stroke-width="1.5"/>
+            <path d="M6 12l6-6M12 12L6 6" stroke="#444444" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <span>Você não tem abertura para repensar seu posicionamento, seus preços e seu modelo de entrega</span>
+        </div>
+        <div class="audience-item">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <circle cx="9" cy="9" r="8" stroke="#444444" stroke-width="1.5"/>
+            <path d="M6 12l6-6M12 12L6 6" stroke="#444444" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <span>Você busca apenas "mais leads" sem mudar a estrutura do negócio</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- ══════════════════════════════════
+     DOBRA 6 — PROVA SOCIAL
+══════════════════════════════════ -->
+<section class="social-proof">
+  <div class="container">
+    <div class="social-proof-intro">
+      <div class="section-label">Resultados Reais</div>
+      <h2 class="section-title">O que dizem quem já aplicou<br />essa metodologia</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"</div>
+        <div class="testimonial-text">
+          Dobrei meu ticket médio em 60 dias e reduzi o número de clientes pela metade. Trabalho menos e lucro mais. O que parecia impossível virou minha nova realidade de negócio.
+        </div>
+        <div class="testimonial-author">
+          <div class="testimonial-name">Ricardo Almeida</div>
+          <div class="testimonial-role">Consultor de Gestão — São Paulo, SP</div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"</div>
+        <div class="testimonial-text">
+          Parei de competir por preço e comecei a competir por valor. Meus novos clientes fecham sem pechinchar. A mudança de posicionamento transformou completamente a qualidade dos relacionamentos comerciais que tenho.
+        </div>
+        <div class="testimonial-author">
+          <div class="testimonial-name">Dra. Fernanda Rocha</div>
+          <div class="testimonial-role">Médica — Clínica de Medicina Estética, RJ</div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"</div>
+        <div class="testimonial-text">
+          Meu funil roda sozinho. Nos primeiros 30 dias depois da implementação, fechei 3 contratos sem nenhuma ligação de prospecção ativa. Isso é o que automação real significa.
+        </div>
+        <div class="testimonial-author">
+          <div class="testimonial-name">Marcelo Figueiredo</div>
+          <div class="testimonial-role">Advogado — Escritório Boutique, MG</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- ══════════════════════════════════
+     DOBRA 7 — CTA SECUNDÁRIO
+══════════════════════════════════ -->
+<section class="cta-secondary">
+  <div class="container">
+    <div class="cta-secondary-inner">
+      <div class="section-label">Garanta Sua Vaga</div>
+      <h2 class="section-title">Reunião Secreta Gratuito ao Vivo</h2>
+      <p style="color:#AAAAAA; font-size:16px; margin-bottom:0;">
+        Como Construir um Negócio Boutique Automatizado e de Alta Margem com IA
+      </p>
+      <div class="event-detail-box">
+        <div class="event-detail-title">Detalhes do Evento</div>
+        <div class="event-detail-subtitle">Reunião Secreta — Acesso Gratuito</div>
+        <div class="event-detail-row">
+          <span class="event-detail-key">Data</span>
+          <span class="event-detail-val">[DATA E HORÁRIO A CONFIRMAR]</span>
+        </div>
+        <div class="event-detail-row">
+          <span class="event-detail-key">Horário</span>
+          <span class="event-detail-val">[HORÁRIO A CONFIRMAR] (Horário de Brasília)</span>
+        </div>
+        <div class="event-detail-row">
+          <span class="event-detail-key">Plataforma</span>
+          <span class="event-detail-val">Zoom — Link enviado por e-mail</span>
+        </div>
+        <div class="event-detail-row">
+          <span class="event-detail-key">Vagas</span>
+          <span class="event-detail-val highlight">Limitadas — Sem replay disponível</span>
+        </div>
+        <div class="event-detail-row">
+          <span class="event-detail-key">Investimento</span>
+          <span class="event-detail-val highlight">100% Gratuito</span>
+        </div>
+      </div>
+      <button class="btn-gold">Garantir Minha Vaga — Acesso Gratuito</button>
+      <p style="font-size:13px;color:#666;margin-top:14px;">Inscrição gratuita. Vagas limitadas. Sem compromisso.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- ══════════════════════════════════
+     DOBRA 8 — FAQ
+══════════════════════════════════ -->
+<section class="faq">
+  <div class="container">
+    <div class="faq-intro">
+      <div class="section-label">Dúvidas Frequentes</div>
+      <h2 class="section-title">Perguntas que todo empresário faz</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-question-text">É mesmo gratuito? Por quê?</span>
+          <span class="faq-arrow">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <path d="M2 4.5L6 8.5L10 4.5" stroke="#B8922A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-answer">
+          Sim, 100% gratuito. Nosso modelo é simples: entregamos valor real na Reunião Secreta a partir dos nossos bastidores empresariais. Quem encontra valor no conteúdo e quer acelerar a implementação terá acesso a uma oportunidade especial ao final.
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-question-text">Preciso ter conhecimento de IA para aproveitar?</span>
+          <span class="faq-arrow">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <path d="M2 4.5L6 8.5L10 4.5" stroke="#B8922A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-answer">
+          Não. A Reunião Secreta é sobre estratégia de negócio. A IA é uma ferramenta dentro de um sistema maior. Você vai entender como usar — mesmo sem background técnico.
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-question-text">Isso funciona para o meu segmento?</span>
+          <span class="faq-arrow">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <path d="M2 4.5L6 8.5L10 4.5" stroke="#B8922A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-answer">
+          O framework de negócio boutique foi aplicado em consultórios, clínicas médicas, escritórios de advocacia, mentorias, gestoras e empresas de serviços B2B. Se você vende expertise ou serviço de alto valor, funciona.
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-question-text">Terei acesso à gravação?</span>
+          <span class="faq-arrow">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <path d="M2 4.5L6 8.5L10 4.5" stroke="#B8922A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-answer">
+          Não. A Reunião Secreta é ao vivo e exclusivo. Essa é uma escolha intencional: quem participa ao vivo tem uma experiência diferente — e acesso a uma oferta especial que não estará disponível depois.
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-question-text">Vou ser obrigado a comprar algo?</span>
+          <span class="faq-arrow">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <path d="M2 4.5L6 8.5L10 4.5" stroke="#B8922A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-answer">
+          Não existe obrigação de nenhum tipo. Ao final, apresentamos o Premium Weekend para quem quiser acelerar a implementação. Mas a decisão é 100% sua e sem pressão.
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-question-text">Não tenho tempo. Quanto dura?</span>
+          <span class="faq-arrow">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <path d="M2 4.5L6 8.5L10 4.5" stroke="#B8922A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-answer">
+          Aproximadamente 90 minutos de conteúdo denso e aplicável. Sem enrolação, sem história desnecessária. Se você tem 90 minutos para investir no modelo que vai te devolver centenas de horas no futuro, este é o melhor investimento da semana.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- ══════════════════════════════════
+     RODAPÉ — CTA FINAL
+══════════════════════════════════ -->
+<section class="footer-cta">
+  <div class="footer-cta-content">
+    <div class="section-label">A Decisão é Agora</div>
+    <h2>Daqui a um ano, você quer estar no mesmo lugar?</h2>
+    <p>Ou você quer olhar para o seu negócio e ver um sistema que funciona, que cobra o que você merece, que automatizou o que te prendia e que te deu de volta o que mais importa:</p>
+    <div class="footer-cta-highlight">liberdade, margem e controle.</div>
+    <p>As vagas são limitadas e não haverá replay.</p>
+    <p>Empresários que faturam entre R$500k e R$10M estão usando IA para construir algo diferente.</p>
+    <p style="font-style:italic;color:#FFFFFF;font-weight:600;margin-bottom:40px;">A questão é: você vai ser um deles?</p>
+    <button class="btn-gold" style="max-width:560px;font-size:17px;padding:22px 40px;">Sim, Quero Construir Meu Negócio Boutique — Garantir Minha Vaga Agora</button>
+    <p style="font-size:13px;color:#666;margin-top:16px;">Vagas limitadas. Inscrição gratuita. Sem compromisso.</p>
+    <div class="footer-legal">
+      <p>Mentory International® — Todos os direitos reservados.</p>
+      <p style="margin-top:8px;">Ao se inscrever, você concorda com nossa política de privacidade. Seus dados não serão compartilhados com terceiros.</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  function toggleFaq(btn) {
+    var item = btn.closest('.faq-item');
+    var isOpen = item.classList.contains('open');
+    // Close all
+    document.querySelectorAll('.faq-item.open').forEach(function(el) {
+      el.classList.remove('open');
+    });
+    // Open clicked if it wasn't open
+    if (!isOpen) {
+      item.classList.add('open');
+    }
+  }
+</script>
+</body>
+</html>
